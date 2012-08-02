@@ -1,0 +1,5 @@
+StartBold Chapter 15 - Linear Algebra EndBold
+Start 3 by 3 Matrix 1st Row 1st Column x plus a 2nd Column x plus b 3rd Column x plus c 2nd Row 1st Column y plus a 2nd Column y plus b 3rd Column y plus c 3rd Row 1st Column z plus a 2nd Column z plus b 3rd Column z plus c EndMatrix
+Start 2 by 2 Determinant 1st Row 1st Column a plus 1 2nd Column b 2nd Row 1st Column c 2nd Column d EndDeterminant equals left-parenthesis a plus 1 right-parenthesis d minus b c
+Start 2 by 2 Determinant 1st Row a b 2nd Row c d EndDeterminant equals a d minus b c
+StartBinomialOrMatrix x Choose y EndBinomialOrMatrix

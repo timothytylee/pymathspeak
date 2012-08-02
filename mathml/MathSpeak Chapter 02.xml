@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" "http://www.w3.org/TR/MathML2/dtd/xhtml-math11-f.dtd" [<!ENTITY mathml 'http://www.w3.org/1998/Math/MathML'>]>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>MathSpeak Chapter 02</title>
+<!-- MathML created with MathCast Equation Editor version 0.91 -->
+</head>
+<body>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mrow>
+    <mstyle mathvariant="bold">
+      <mtext>Chapter 2 - Capitalization and Font Styles</mtext>
+    </mstyle>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="fonts_CAP1-01">
+  <mrow>
+    <mi>d</mi>
+    <mo>=</mo>
+    <msqrt>
+      <mrow>
+        <msup>
+          <mfenced>
+            <mrow>
+              <mi>X</mi>
+              <mo>−</mo>
+              <mi>x</mi>
+            </mrow>
+          </mfenced>
+          <mn>2</mn>
+        </msup>
+        <mo>−</mo>
+        <msup>
+          <mfenced>
+            <mrow>
+              <mi>Y</mi>
+              <mo>−</mo>
+              <mi>y</mi>
+            </mrow>
+          </mfenced>
+          <mn>2</mn>
+        </msup>
+      </mrow>
+    </msqrt>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="fonts_CAP2-05">
+  <mrow>
+    <mtext>Read chapter </mtext>
+    <mi>I</mi>
+    <mtext>−</mtext>
+    <mi>V</mi>
+    <mtext> and </mtext>
+    <mi>X</mi>
+    <mi>I</mi>
+    <mtext>−</mtext>
+    <mi>X</mi>
+    <mi>V</mi>
+    <mo>.</mo>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="fonts_CAP3-01">
+  <mrow>
+    <mtext>If </mtext>
+    <mi>A</mi>
+    <mo>→</mo>
+    <mi>B</mi>
+    <mtext> and </mtext>
+    <mi>B</mi>
+    <mo>→</mo>
+    <mi>C</mi>
+    <mtext> then </mtext>
+    <mi>A</mi>
+    <mo>→</mo>
+    <mi>C</mi>
+    <mo>.</mo>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="fonts_BOLD1-05">
+  <mrow>
+    <mstyle mathvariant="bold">
+      <mo>[</mo>
+    </mstyle>
+    <mi>x</mi>
+    <mstyle mathvariant="bold">
+      <mo>]</mo>
+    </mstyle>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="fonts_BOLD1-04">
+  <mrow>
+    <mo>∮</mo>
+    <mi>E</mi>
+    <mo>·</mo>
+    <mi>d</mi>
+    <mstyle mathvariant="bold">
+      <mi>l</mi>
+    </mstyle>
+    <mo>=</mo>
+    <mo>−</mo>
+    <mfrac>
+      <mrow>
+        <mi>d</mi>
+        <mi>Φ</mi>
+        <mi>B</mi>
+      </mrow>
+      <mrow>
+        <mi>d</mi>
+        <mi>t</mi>
+      </mrow>
+    </mfrac>
+  </mrow>
+</math></body>
+</html>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" "http://www.w3.org/TR/MathML2/dtd/xhtml-math11-f.dtd" [<!ENTITY mathml 'http://www.w3.org/1998/Math/MathML'>]>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>MathSpeak Chapter 14</title>
+<!-- MathML created with MathCast Equation Editor version 0.91 -->
+</head>
+<body>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mrow>
+    <mstyle mathvariant="bold">
+      <mtext>Chapter 14 - Layouts</mtext>
+    </mstyle>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="layouts_GEN1-01">
+  <mrow>
+    <mtable>
+      <mtr>
+        <mtd>
+          <msub>
+            <mi>H</mi>
+            <mn>2</mn>
+          </msub>
+        </mtd>
+        <mtd>
+          <mo>+</mo>
+        </mtd>
+        <mtd>
+          <msub>
+            <mi>F</mi>
+            <mn>2</mn>
+          </msub>
+        </mtd>
+        <mtd>
+          <mo>→</mo>
+        </mtd>
+        <mtd>
+          <mn>2</mn>
+          <mi>H</mi>
+          <mi>F</mi>
+        </mtd>
+      </mtr>
+      <mtr>
+        <mtd>
+          <mtext>hydrogen</mtext>
+        </mtd>
+        <mtd/>
+        <mtd>
+          <mtext>flourine</mtext>
+        </mtd>
+        <mtd/>
+        <mtd>
+          <mtext>hydrogen fluoride</mtext>
+        </mtd>
+      </mtr>
+    </mtable>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="layouts_SYM1-05">
+  <mrow>
+    <mi>x</mi>
+    <mo>=</mo>
+    <mo>{</mo>
+    <mtable>
+      <mtr>
+        <mtd>
+          <mi>y</mi>
+          <mo>&lt;</mo>
+          <mn>0</mn>
+        </mtd>
+        <mtd>
+          <mn>0</mn>
+        </mtd>
+      </mtr>
+      <mtr>
+        <mtd>
+          <mi>y</mi>
+          <mo>≥</mo>
+          <mn>0</mn>
+        </mtd>
+        <mtd>
+          <mn>2</mn>
+          <mi>y</mi>
+        </mtd>
+      </mtr>
+    </mtable>
+  </mrow>
+</math></body>
+</html>

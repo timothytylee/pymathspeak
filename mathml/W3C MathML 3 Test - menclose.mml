@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" "http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>MathML Test: menclose</title>
+  <meta http-equiv="content-type" content="text/html; charset=us-ascii"/>
+  <meta name="generator" content="Amaya, see http://www.w3.org/Amaya/"/>
+  <meta name="author" content="Frederic WANG"/>
+</head>
+
+<body>
+<p><a href="http://www.maths-informatique-jeux.com/international/mathml_test/index.xml#presentation_elements">Back to home</a></p>
+
+<h1>MathML Test: menclose</h1>
+
+<p>This test displays <a href="http://www.w3.org/TR/2003/REC-MathML2-20031021/chapter3.html#presm.menclose">menclose
+element</a> with each value given in the MathML specification for the
+attribute <code>notation</code> and also with several values combinated. The
+list of values is open-ended and an example with the attribute
+<code>"unknown"</code> is given to see how the program reacts.</p>
+<ol>
+  <li>check that the default value is <code>"longdiv"</code></li>
+  <li>check whether all attributes are recognized</li>
+  <li>check whether several attributes can be combinated</li>
+  <li>check whether nothing is displayed with the attribute
+  <code>"unknown"</code></li>
+  <li>check whether <code>"unknown"</code> is ignored when combinated with other
+    attributes</li>
+</ol>
+<ul>
+  <li>no attribute: <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <menclose>
+        <mtext>sometext</mtext>
+      </menclose>
+    </math></li>
+  <li>longdiv: <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <menclose notation="longdiv">
+        <mtext>sometext</mtext>
+      </menclose>
+    </math></li>
+  <li>actuarial: <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <menclose notation="actuarial">
+        <mtext>sometext</mtext>
+      </menclose>
+    </math></li>
+  <li>radical: <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <menclose notation="radical">
+        <mtext>sometext</mtext>
+      </menclose>
+    </math></li>
+  <li>box: <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <menclose notation="box">
+        <mtext>sometext</mtext>
+      </menclose>
+    </math></li>
+  <li>roundedbox: <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <menclose notation="roundedbox">
+        <mtext>sometext</mtext>
+      </menclose>
+    </math></li>
+  <li>circle: <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <menclose notation="circle">
+        <mtext>sometext</mtext>
+      </menclose>
+    </math></li>
+  <li> left: <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <menclose notation="left">
+        <mtext>sometext</mtext>
+      </menclose>
+    </math></li>
+  <li>right: <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <menclose notation="right">
+        <mtext>sometext</mtext>
+      </menclose>
+    </math></li>
+  <li>top: <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <menclose notation="top">
+        <mtext>sometext</mtext>
+      </menclose>
+    </math></li>
+  <li>bottom: <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <menclose notation="bottom">
+        <mtext>sometext</mtext>
+      </menclose>
+    </math></li>
+  <li>updiagonalstrike: <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <menclose notation="updiagonalstrike">
+        <mtext>sometext</mtext>
+      </menclose>
+    </math></li>
+  <li>downdiagonalstrike: <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <menclose notation="downdiagonalstrike">
+        <mtext>sometext</mtext>
+      </menclose>
+    </math></li>
+  <li>verticalstrike: <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <menclose notation="verticalstrike">
+        <mtext>sometext</mtext>
+      </menclose>
+    </math></li>
+  <li>horizontalstrike: <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <menclose notation="horizontalstrike">
+        <mtext>sometext</mtext>
+      </menclose>
+    </math></li>
+  <li>left right top bottom: <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <menclose notation="left right top bottom">
+        <mtext>sometext</mtext>
+      </menclose>
+    </math></li>
+  <li>unknown: <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <menclose notation="unknown">
+        <mtext>sometext</mtext>
+      </menclose>
+    </math></li>
+  <li>circle unknown updiagonalstrike downdiagonalstrike: <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <menclose notation="circle unknown updiagonalstrike downdiagonalstrike">
+        <mtext>sometext</mtext>
+      </menclose>
+    </math></li>
+  <li><ins>new in MathML 3</ins> madruwb: <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <menclose notation="madruwb">
+        <mtext>sometext</mtext>
+      </menclose>
+    </math></li>
+</ul>
+</body>
+</html>

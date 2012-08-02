@@ -1,0 +1,10 @@
+StartBold Chapter 9 − Radicals EndBold
+StartRoot 2 EndRoot
+StartRoot m plus n EndRoot
+RootIndex m plus n StartRoot x plus y EndRoot
+RootIndex n StartRoot x SuperScript m EndRoot equals left-parenthesis RootIndex n StartRoot x EndRoot right-parenthesis SuperScript m Baseline equals x SuperScript StartFraction m Over n EndFraction Baseline comma x greater-than 0
+RootIndex 3 StartRoot x EndRoot equals x SuperScript one-third
+NestedStartRoot StartRoot x plus 1 EndRoot plus StartRoot y plus 1 EndRoot NestedEndRoot
+NestedRootIndex n NestedStartRoot RootIndex m StartRoot x EndRoot NestedEndRoot equals NestedRootIndex m NestedStartRoot RootIndex n StartRoot x EndRoot NestedEndRoot
+x SuperScript e minus 2 Baseline equals Nested3StartRoot x NestedTwiceRootIndex 3 NestedTwiceStartRoot x NestedRootIndex 4 NestedStartRoot x RootIndex 5 StartRoot x ellipsis EndRoot NestedEndRoot NestedTwiceEndRoot Nested3EndRoot comma x element-of Upper ℝ
+StartFraction 2 Over pi EndFraction equals StartFraction StartRoot 2 EndRoot Over 2 EndFraction StartFraction NestedStartRoot 2 plus StartRoot 2 EndRoot NestedEndRoot Over 2 EndFraction StartFraction NestedTwiceStartRoot 2 plus NestedStartRoot 2 plus StartRoot 2 EndRoot NestedEndRoot NestedTwiceEndRoot Over 2 EndFraction ellipsis

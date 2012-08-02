@@ -1,0 +1,254 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" "http://www.w3.org/TR/MathML2/dtd/xhtml-math11-f.dtd" [<!ENTITY mathml 'http://www.w3.org/1998/Math/MathML'>]>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>MathSpeak Chapter 11</title>
+<!-- MathML created with MathCast Equation Editor version 0.91 -->
+</head>
+<body>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mrow>
+    <mstyle mathvariant="bold">
+      <mtext>Chapter 11 - Modifiers and Stacked Expressions</mtext>
+    </mstyle>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="stacked_MODA1-05">
+  <mrow>
+    <mover>
+      <mi>x</mi>
+      <mrow>
+        <mo>·</mo>
+        <mo>·</mo>
+      </mrow>
+    </mover>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="stacked_MODA1-02">
+  <mrow>
+    <mover>
+      <mrow>
+        <mi>x</mi>
+        <mo>+</mo>
+        <mi>y</mi>
+      </mrow>
+      <mo>→</mo>
+    </mover>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="stacked_MODA1-01">
+  <mrow>
+    <mover>
+      <mi>x</mi>
+      <mo>‸</mo>
+    </mover>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mrow>
+    <munder>
+      <mi>x</mi>
+      <mo>.</mo>
+    </munder>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="stacked_MQCK1-02">
+  <mrow>
+    <mover>
+      <mi>x</mi>
+      <mo>~</mo>
+    </mover>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="stacked_MQCK1-01">
+  <mrow>
+    <mover>
+      <mi>x</mi>
+      <mo>¯</mo>
+    </mover>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="stacked_MQCK1-03">
+  <mrow>
+    <munder>
+      <mi>y</mi>
+      <mo>~</mo>
+    </munder>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="stacked_MQCK2-01">
+  <mrow>
+    <mover>
+      <mover>
+        <mi>x</mi>
+        <mo>¯</mo>
+      </mover>
+      <mo>¯</mo>
+    </mover>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="stacked_MQCK2-02">
+  <mrow>
+    <munder>
+      <mrow>
+        <munder>
+          <mover>
+            <mover>
+              <mi>y</mi>
+              <mo>¯</mo>
+            </mover>
+            <mo>¯</mo>
+          </mover>
+          <mo>¯</mo>
+        </munder>
+      </mrow>
+      <mo>¯</mo>
+    </munder>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="stacked_MORD1-02">
+  <mrow>
+    <munder>
+      <mrow>
+        <munder>
+          <mrow>
+            <mi>a</mi>
+            <mo>+</mo>
+            <mi>b</mi>
+          </mrow>
+          <mo>¯</mo>
+        </munder>
+      </mrow>
+      <mo>∗</mo>
+    </munder>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="stacked_MORD1-03">
+  <mrow>
+    <munderover>
+      <mrow>
+        <munderover>
+          <mrow>
+            <mi>a</mi>
+            <mo>+</mo>
+            <mi>b</mi>
+          </mrow>
+          <mrow>
+            <mo>←</mo>
+          </mrow>
+          <mo>→</mo>
+        </munderover>
+      </mrow>
+      <mrow>
+        <mo>.</mo>
+      </mrow>
+      <mo>.</mo>
+    </munderover>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="stacked_MORD1-01">
+  <mrow>
+    <mover>
+      <mrow>
+        <mover>
+          <mrow>
+            <mi>x</mi>
+            <mo>+</mo>
+            <mi>y</mi>
+          </mrow>
+          <mo>~</mo>
+        </mover>
+      </mrow>
+      <mo>¯</mo>
+    </mover>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mrow>
+    <munderover>
+      <mo>∑</mo>
+      <mrow>
+        <mi>n</mi>
+        <mo>=</mo>
+        <mn>1</mn>
+      </mrow>
+      <mi>∞</mi>
+    </munderover>
+    <msub>
+      <mi>a</mi>
+      <mi>n</mi>
+    </msub>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="stacked_STA2-02">
+  <mrow>
+    <munder>
+      <mrow>
+        <munder>
+          <mrow>
+            <munder>
+              <mrow>
+                <mi>x</mi>
+                <mo>+</mo>
+                <mi>y</mi>
+              </mrow>
+              <mo>¯</mo>
+            </munder>
+          </mrow>
+          <mrow>
+            <mi>a</mi>
+            <mo>=</mo>
+            <mn>5</mn>
+          </mrow>
+        </munder>
+      </mrow>
+      <mrow>
+        <mi>b</mi>
+        <mo>=</mo>
+        <mn>3</mn>
+      </mrow>
+    </munder>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="stacked_STA2-01">
+  <mrow>
+    <mover>
+      <mrow>
+        <mover>
+          <mrow>
+            <mover>
+              <mrow>
+                <mi>x</mi>
+                <mo>+</mo>
+                <mi>y</mi>
+              </mrow>
+              <mo>¯</mo>
+            </mover>
+          </mrow>
+          <mrow>
+            <mi>n</mi>
+            <mo>=</mo>
+            <mn>1</mn>
+          </mrow>
+        </mover>
+      </mrow>
+      <mrow>
+        <mi>m</mi>
+        <mo>=</mo>
+        <mn>2</mn>
+      </mrow>
+    </mover>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mrow>
+    <mfrac>
+      <mn>7</mn>
+      <mn>12</mn>
+    </mfrac>
+    <mo>=</mo>
+    <mn>.58</mn>
+    <mrow>
+      <mover>
+        <mn>3</mn>
+        <mo>.</mo>
+      </mover>
+    </mrow>
+    <mrow>
+      <mover>
+        <mn>3</mn>
+        <mo>.</mo>
+      </mover>
+    </mrow>
+    <mrow>
+      <mover>
+        <mn>3</mn>
+        <mo>.</mo>
+      </mover>
+    </mrow>
+  </mrow>
+</math></body>
+</html>

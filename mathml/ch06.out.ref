@@ -1,0 +1,4 @@
+StartBold Chapter 6 - Grouping Symbols EndBold
+The Fibonacci numbers are colon StartSet 0 comma 1 comma 1 comma 2 comma 3 comma 5 comma 8 comma ellipsis EndSet
+StartAbsoluteValue 4 minus 7 EndAbsoluteValue equals 3
+StartAbsoluteValue a StartAbsoluteValue plus-or-minus b EndAbsoluteValue minus 15 EndAbsoluteValue not-equals StartAbsoluteValue a EndAbsoluteValue plus-or-minus b StartAbsoluteValue minus 15 EndAbsoluteValue

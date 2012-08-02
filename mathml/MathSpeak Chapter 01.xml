@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" "http://www.w3.org/TR/MathML2/dtd/xhtml-math11-f.dtd" [<!ENTITY mathml 'http://www.w3.org/1998/Math/MathML'>]>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>MathSpeak Examples</title>
+<!-- MathML created with MathCast Equation Editor version 0.91 -->
+</head>
+<body>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mrow>
+    <mstyle mathvariant="bold">
+      <mtext>Chapter 1 - Numbers</mtext>
+    </mstyle>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="numbers_SIM1-10">
+  <mrow>
+    <mi>π</mi>
+    <mo>≈</mo>
+    <mn>3.14159</mn>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="numbers_SIM1-01">
+  <mrow>
+    <mn>102</mn>
+    <mo>+</mo>
+    <mn>2,214</mn>
+    <mo>+</mo>
+    <mn>15</mn>
+    <mo>=</mo>
+    <mn>2,331</mn>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="numbers_SIM1-03">
+  <mrow>
+    <mn>59</mn>
+    <mo>×</mo>
+    <mn>0</mn>
+    <mo>=</mo>
+    <mn>0</mn>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="numbers_NEG1-02">
+  <mrow>
+    <mn>3</mn>
+    <mo>−</mo>
+    <mn>-2</mn>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="numbers_NEG1-04">
+  <mrow>
+    <mo>−</mo>
+    <mi>y</mi>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="numbers_NEG-01">
+  <mrow>
+    <mn>-32</mn>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="numbers_IND1-09">
+  <mrow>
+    <mn>t2e4</mn>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="numbers_IND1-07">
+  <mrow>
+    <mn>#FF0000</mn>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="numbers_IND1-05">
+  <mrow>
+    <mn>0x15FF</mn>
+    <mo>+</mo>
+    <mn>0x2B01</mn>
+    <mo>=</mo>
+    <mn>0x4100</mn>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="numbers_ROM1-05">
+  <mrow>
+    <mn>I</mn>
+    <mo>,</mo>
+    <mn>II</mn>
+    <mo>,</mo>
+    <mn>III</mn>
+    <mo>,</mo>
+    <mn>IV</mn>
+    <mo>,</mo>
+    <mn>V</mn>
+    <mo>.</mo>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="numbers_MOD1-05">
+  <mrow>
+    <mfrac>
+      <mn>22</mn>
+      <mn>7</mn>
+    </mfrac>
+    <mo>=</mo>
+    <mn>3.</mn>
+    <mover>
+      <mrow>
+        <mn>142857</mn>
+      </mrow>
+      <mo>¯</mo>
+    </mover>
+  </mrow>
+</math></body>
+</html>

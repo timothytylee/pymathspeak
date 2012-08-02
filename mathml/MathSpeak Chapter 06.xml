@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" "http://www.w3.org/TR/MathML2/dtd/xhtml-math11-f.dtd" [<!ENTITY mathml 'http://www.w3.org/1998/Math/MathML'>]>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>MathSpeak Chapter 06</title>
+<!-- MathML created with MathCast Equation Editor version 0.91 -->
+</head>
+<body>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mrow>
+    <mstyle mathvariant="bold">
+      <mtext>Chapter 6 - Grouping Symbols</mtext>
+    </mstyle>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="group_SET1-05">
+  <mrow>
+    <mtext>The Fibonacci numbers are</mtext>
+    <mo>:</mo>
+    <mfenced open="{" close="}" separators=",">
+      <mn>0</mn>
+      <mn>1</mn>
+      <mn>1</mn>
+      <mn>2</mn>
+      <mn>3</mn>
+      <mn>5</mn>
+      <mn>8</mn>
+      <mo>…</mo>
+    </mfenced>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="group_ABS1-05">
+  <mrow>
+    <mo>|</mo>
+    <mrow>
+      <mn>4</mn>
+      <mo>−</mo>
+      <mn>7</mn>
+    </mrow>
+    <mo>|</mo>
+    <mo>=</mo>
+    <mn>3</mn>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="group_ABS1-10">
+  <mrow>
+    <mo>|</mo>
+    <mrow>
+      <mi>a</mi>
+      <mo>|</mo>
+      <mrow>
+        <mo>±</mo>
+        <mi>b</mi>
+      </mrow>
+      <mo>|</mo>
+      <mo>−</mo>
+      <mn>15</mn>
+    </mrow>
+    <mo>|</mo>
+    <mo>≠</mo>
+    <mo>|</mo>
+    <mi>a</mi>
+    <mo>|</mo>
+    <mo>±</mo>
+    <mi>b</mi>
+    <mo>|</mo>
+    <mo>−</mo>
+    <mn>15</mn>
+    <mo>|</mo>
+  </mrow>
+</math></body>
+</html>

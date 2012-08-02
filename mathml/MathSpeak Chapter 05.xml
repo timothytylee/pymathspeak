@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" "http://www.w3.org/TR/MathML2/dtd/xhtml-math11-f.dtd" [<!ENTITY mathml 'http://www.w3.org/1998/Math/MathML'>]>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>MathSpeak Chapter 05</title>
+<!-- MathML created with MathCast Equation Editor version 0.91 -->
+</head>
+<body>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mrow>
+    <mstyle mathvariant="bold">
+      <mtext>Chapter 5 - Symbols</mtext>
+    </mstyle>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="symbols_MIN1-03">
+  <mrow>
+    <mi>y</mi>
+    <mo>−</mo>
+    <mn>1</mn>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="symbols_MIN1-01">
+  <mrow>
+    <mfenced>
+      <mrow>
+        <mn>1</mn>
+        <mtext>−to−</mtext>
+        <mn>1</mn>
+      </mrow>
+    </mfenced>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="symbols_MIN1-02">
+  <mrow>
+    <mn>-1</mn>
+  </mrow>
+</math></body>
+</html>

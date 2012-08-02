@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" "http://www.w3.org/TR/MathML2/dtd/xhtml-math11-f.dtd" [<!ENTITY mathml 'http://www.w3.org/1998/Math/MathML'>]>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><title>MathSpeak Chapter 15</title>
+<!-- MathML created with MathCast Equation Editor version 0.91 -->
+</head>
+<body>
+<math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
+  <mrow>
+    <mstyle mathvariant="bold">
+      <mtext>Chapter 15 - Linear Algebra</mtext>
+    </mstyle>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="linearalg_MAT1-05">
+  <mrow>
+    <mo>[</mo>
+    <mtable>
+      <mtr>
+        <mtd>
+          <mi>x</mi>
+          <mo>+</mo>
+          <mi>a</mi>
+        </mtd>
+        <mtd>
+          <mi>x</mi>
+          <mo>+</mo>
+          <mi>b</mi>
+        </mtd>
+        <mtd>
+          <mi>x</mi>
+          <mo>+</mo>
+          <mi>c</mi>
+        </mtd>
+      </mtr>
+      <mtr>
+        <mtd>
+          <mi>y</mi>
+          <mo>+</mo>
+          <mi>a</mi>
+        </mtd>
+        <mtd>
+          <mi>y</mi>
+          <mo>+</mo>
+          <mi>b</mi>
+        </mtd>
+        <mtd>
+          <mi>y</mi>
+          <mo>+</mo>
+          <mi>c</mi>
+        </mtd>
+      </mtr>
+      <mtr>
+        <mtd>
+          <mi>z</mi>
+          <mo>+</mo>
+          <mi>a</mi>
+        </mtd>
+        <mtd>
+          <mi>z</mi>
+          <mo>+</mo>
+          <mi>b</mi>
+        </mtd>
+        <mtd>
+          <mi>z</mi>
+          <mo>+</mo>
+          <mi>c</mi>
+        </mtd>
+      </mtr>
+    </mtable>
+    <mo>]</mo>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="linearalg_DET1-01">
+  <mrow>
+    <mo>|</mo>
+    <mtable>
+      <mtr>
+        <mtd>
+          <mi>a</mi>
+          <mo>+</mo>
+          <mn>1</mn>
+        </mtd>
+        <mtd>
+          <mi>b</mi>
+        </mtd>
+      </mtr>
+      <mtr>
+        <mtd>
+          <mi>c</mi>
+        </mtd>
+        <mtd>
+          <mi>d</mi>
+        </mtd>
+      </mtr>
+    </mtable>
+    <mo>|</mo>
+    <mo>=</mo>
+    <mfenced>
+      <mrow>
+        <mi>a</mi>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mrow>
+    </mfenced>
+    <mi>d</mi>
+    <mo>−</mo>
+    <mi>b</mi>
+    <mi>c</mi>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="linearalg_QCK1-02">
+  <mrow>
+    <mo>|</mo>
+    <mtable>
+      <mtr>
+        <mtd>
+          <mi>a</mi>
+        </mtd>
+        <mtd>
+          <mi>b</mi>
+        </mtd>
+      </mtr>
+      <mtr>
+        <mtd>
+          <mi>c</mi>
+        </mtd>
+        <mtd>
+          <mi>d</mi>
+        </mtd>
+      </mtr>
+    </mtable>
+    <mo>|</mo>
+    <mo>=</mo>
+    <mi>a</mi>
+    <mi>d</mi>
+    <mo>−</mo>
+    <mi>b</mi>
+    <mi>c</mi>
+  </mrow>
+</math><math xmlns="http://www.w3.org/1998/Math/MathML" display="block" id="linearalg_AMBG1-01">
+  <mrow>
+    <mfenced>
+      <mrow>
+        <mtable>
+          <mtr>
+            <mtd>
+              <mi>x</mi>
+            </mtd>
+          </mtr>
+          <mtr>
+            <mtd>
+              <mi>y</mi>
+            </mtd>
+          </mtr>
+        </mtable>
+      </mrow>
+    </mfenced>
+  </mrow>
+</math></body>
+</html>

@@ -1,0 +1,1621 @@
+<?xml version="1.0" encoding="us-ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" "http://www.w3.org/Math/DTD/mathml2/xhtml-math11-f.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>MathML Test : The infinite in set theory</title>
+  <meta http-equiv="content-type" content="text/html; charset=us-ascii"/>
+  <meta name="generator" content="Amaya, see http://www.w3.org/Amaya/"/>
+  <meta name="author" content="Frederic WANG"/>
+</head>
+
+<body>
+<p><a href="http://www.maths-informatique-jeux.com/international/mathml_test/index.xml#examples">Back to home</a></p>
+
+<h1>MathML Test: The infinite in set theory</h1>
+
+<h2>Introduction</h2>
+
+<p>The study of sizes of sets has been an important topic of set theory since
+its beginning. For finite sets, their numbers of elements can be counted and as
+a consequence, their sizes easily compared. The idea of Cantor was to extend
+the comparaison to infinite sets: two set "have the same size" iff there exists
+a one-to-one map from one onto the other. Clearly it is a relation of
+equivalence and a class of equivalence contains sets that "have the same size".
+In fact, we can get a class of representants ordered by the following relation:
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <mi>X</mi>
+    <mo>&#8804;</mo>
+    <mi>Y</mi>
+  </mrow>
+</math> iff there is a one-to-one map from X to Y. Only the reflexivity is not
+trivial and is given by Cantor-Bernstein theorem. This class of representants
+is called cardinals whose first elements are the well-know natural numbers: 0,
+1, 2... Then comes the cardinality of
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mi>&#8469;</mi>
+</math> denoted by <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <msub>
+    <mi>&#8501;</mi>
+    <mn>0</mn>
+  </msub>
+</math> and the sets in this class are said countable. The great success of
+Cantor was to show the existence of greater sets (uncountable) and more
+precisely of an infinity of infinite cardinals. Later, the set theorists
+discovered several properties of cardinals and developped a beautiful
+arithmetic of infinite... </p>
+
+<h2>Cantor-Bernstein Theorem</h2>
+
+<p>Let X and Y be two sets. If there are
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mi>f</mi>
+  <mo>:</mo>
+  <mrow>
+    <mi>X</mi>
+    <mo>&#8594;</mo>
+    <mi>Y</mi>
+  </mrow>
+</math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mi>g</mi>
+  <mo>:</mo>
+  <mrow>
+    <mi>Y</mi>
+    <mo>&#8594;</mo>
+    <mi>X</mi>
+  </mrow>
+</math> two one-to-one maps, then there exists a one-to-one map from X onto
+Y.</p>
+
+<p>Proof: Define <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <msub>
+    <mi>X</mi>
+    <mn>0</mn>
+  </msub>
+  <mo>=</mo>
+  <mrow>
+    <mi>X</mi>
+    <mo>\</mo>
+    <mrow>
+      <mi>g</mi>
+      <mo>&#8289;</mo>
+      <mrow>
+        <mo>(</mo>
+        <mi>Y</mi>
+        <mo>)</mo>
+      </mrow>
+    </mrow>
+  </mrow>
+</math>, for all <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <mi>n</mi>
+    <mo>&#8712;</mo>
+    <mi>&#8469;</mi>
+  </mrow>
+  <mo>,</mo>
+  <msub>
+    <mi>X</mi>
+    <mrow>
+      <mi>n</mi>
+      <mo>+</mo>
+      <mn>1</mn>
+    </mrow>
+  </msub>
+  <mo>=</mo>
+  <mrow>
+    <mrow>
+      <mo>(</mo>
+      <mrow>
+        <mi>g</mi>
+        <mo>&#8728;</mo>
+        <mi>f</mi>
+      </mrow>
+      <mo>)</mo>
+    </mrow>
+    <mo>&#8289;</mo>
+    <mrow>
+      <mo>(</mo>
+      <msub>
+        <mi>X</mi>
+        <mi>n</mi>
+      </msub>
+      <mo>)</mo>
+    </mrow>
+  </mrow>
+</math>, <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <msub>
+    <mi>X</mi>
+    <mi>&#969;</mi>
+  </msub>
+  <mo>=</mo>
+  <mrow>
+    <munder>
+      <mo>&#8899;</mo>
+      <mrow>
+        <mi>n</mi>
+        <mo>&lt;</mo>
+        <mi>&#969;</mi>
+      </mrow>
+    </munder>
+    <msub>
+      <mi>X</mi>
+      <mi>n</mi>
+    </msub>
+  </mrow>
+</math> and finally</p>
+
+<p><math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <mi>h</mi>
+    <mo>:</mo>
+    <mo>&#8739;</mo>
+    <mrow>
+      <mtable>
+        <mtr>
+          <mtd>
+            <mi>X</mi>
+            <mo>&#8594;</mo>
+            <mrow>
+              <mi>X</mi>
+              <mo>\</mo>
+              <msub>
+                <mi>X</mi>
+                <mn>0</mn>
+              </msub>
+            </mrow>
+          </mtd>
+        </mtr>
+        <mtr>
+          <mtd>
+            <mi>x</mi>
+            <mo>&#8614;</mo>
+            <mrow>
+              <mo>{</mo>
+              <mrow>
+                <mtable>
+                  <mtr>
+                    <mtd>
+                      <mrow>
+                        <mo>(</mo>
+                        <mi>g</mi>
+                        <mo>&#8728;</mo>
+                        <mi>f</mi>
+                        <mo>)</mo>
+                      </mrow>
+                      <mo>&#8289;</mo>
+                      <mo>&#8289;</mo>
+                      <mrow>
+                        <mo>(</mo>
+                        <mi>x</mi>
+                        <mo>)</mo>
+                      </mrow>
+                      <mtext>&#160;if</mtext>
+                      <mrow>
+                        <mi>x</mi>
+                        <mo>&#8712;</mo>
+                        <msub>
+                          <mi>X</mi>
+                          <mi>&#969;</mi>
+                        </msub>
+                      </mrow>
+                    </mtd>
+                  </mtr>
+                  <mtr>
+                    <mtd>
+                      <mi>x</mi>
+                      <mtext>&#160;otherwise</mtext>
+                    </mtd>
+                  </mtr>
+                </mtable>
+              </mrow>
+            </mrow>
+          </mtd>
+        </mtr>
+      </mtable>
+    </mrow>
+  </mrow>
+</math></p>
+
+<p>h is one-to-one as <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <mi>x</mi>
+    <mo>&#8614;</mo>
+    <mi>x</mi>
+  </mrow>
+</math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <mi>g</mi>
+    <mo>&#8728;</mo>
+    <mi>f</mi>
+  </mrow>
+</math> are one-to-one, and their ranges are respectively included in the two
+disjoint sets <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <mi>X</mi>
+    <mo>\</mo>
+    <msub>
+      <mi>X</mi>
+      <mi>&#969;</mi>
+    </msub>
+  </mrow>
+</math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <msub>
+    <mi>X</mi>
+    <mi>&#969;</mi>
+  </msub>
+</math>. More over, by construction all the
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <msub>
+    <mi>X</mi>
+    <mi>i</mi>
+  </msub>
+</math> are disjoint and we have:</p>
+
+<p><math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <mrow>
+      <mo>(</mo>
+      <mrow>
+        <mi>g</mi>
+        <mo>&#8728;</mo>
+        <mi>f</mi>
+      </mrow>
+      <mo>)</mo>
+      <mo>&#8289;</mo>
+      <mrow>
+        <mo>(</mo>
+        <msub>
+          <mi>X</mi>
+          <mi>&#969;</mi>
+        </msub>
+        <mo>)</mo>
+      </mrow>
+    </mrow>
+    <mo>=</mo>
+    <mrow>
+      <mrow>
+        <munder>
+          <mo>&#8899;</mo>
+          <mrow>
+            <mi>n</mi>
+            <mo>&lt;</mo>
+            <mi>&#969;</mi>
+          </mrow>
+        </munder>
+        <mrow>
+          <mo>(</mo>
+          <mrow>
+            <mi>g</mi>
+            <mo>&#8728;</mo>
+            <mi>f</mi>
+          </mrow>
+          <mo>)</mo>
+          <mo>&#8289;</mo>
+          <mrow>
+            <mo>(</mo>
+            <msub>
+              <mi>X</mi>
+              <mi>n</mi>
+            </msub>
+            <mo>)</mo>
+          </mrow>
+        </mrow>
+      </mrow>
+      <mo>=</mo>
+      <mrow>
+        <mrow>
+          <munder>
+            <mo>&#8899;</mo>
+            <mrow>
+              <mi>n</mi>
+              <mo>&lt;</mo>
+              <mi>&#969;</mi>
+            </mrow>
+          </munder>
+          <msub>
+            <mi>X</mi>
+            <mrow>
+              <mi>n</mi>
+              <mo>+</mo>
+              <mn>1</mn>
+            </mrow>
+          </msub>
+        </mrow>
+      </mrow>
+      <mo>=</mo>
+    </mrow>
+    <mrow>
+      <mrow>
+        <mrow>
+          <msub>
+            <mi>X</mi>
+            <mi>&#969;</mi>
+          </msub>
+          <mo>\</mo>
+          <msub>
+            <mi>X</mi>
+            <mn>0</mn>
+          </msub>
+        </mrow>
+      </mrow>
+    </mrow>
+  </mrow>
+</math></p>
+
+<p>Consequently, <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mi>h</mi>
+  <mo>&#8289;</mo>
+  <mrow>
+    <mo>(</mo>
+    <mi>X</mi>
+    <mo>)</mo>
+  </mrow>
+  <mo>=</mo>
+  <mi>h</mi>
+  <mo xmlns="http://www.w3.org/1998/Math/MathML">&#8289;</mo>
+  <mrow>
+    <mo>(</mo>
+    <mrow>
+      <mrow>
+        <mi>X</mi>
+        <mo>\</mo>
+        <msub>
+          <mi>X</mi>
+          <mi>&#969;</mi>
+        </msub>
+      </mrow>
+      <mo>&#8899;</mo>
+      <msub>
+        <mi>X</mi>
+        <mi>&#969;</mi>
+      </msub>
+    </mrow>
+    <mo>)</mo>
+  </mrow>
+  <mo>=</mo>
+  <mrow>
+    <mi>h</mi>
+    <mo>&#8289;</mo>
+    <mrow>
+      <mo>(</mo>
+      <mrow>
+        <mi>X</mi>
+        <mo>\</mo>
+        <msub xmlns="http://www.w3.org/1998/Math/MathML">
+          <mi>X</mi>
+          <mi>&#969;</mi>
+        </msub>
+      </mrow>
+      <mo>)</mo>
+    </mrow>
+    <mo>&#8899;</mo>
+    <mi>h</mi>
+    <mo>&#8289;</mo>
+    <mrow>
+      <mo>(</mo>
+      <msub>
+        <mi>X</mi>
+        <mi>&#969;</mi>
+      </msub>
+      <mo>)</mo>
+    </mrow>
+    <mo>=</mo>
+  </mrow>
+  <mrow>
+    <mrow>
+      <mo>(</mo>
+      <mrow>
+        <mi>X</mi>
+        <mo>\</mo>
+        <msub>
+          <mi>X</mi>
+          <mi>&#969;</mi>
+        </msub>
+      </mrow>
+      <mo>)</mo>
+    </mrow>
+    <mo>&#8899;</mo>
+    <mrow>
+      <mo>(</mo>
+      <mrow>
+        <mrow>
+          <msub>
+            <mi>X</mi>
+            <mi>&#969;</mi>
+          </msub>
+          <mo>\</mo>
+          <msub>
+            <mi>X</mi>
+            <mn>0</mn>
+          </msub>
+        </mrow>
+      </mrow>
+      <mo>)</mo>
+    </mrow>
+  </mrow>
+  <mo xmlns="http://www.w3.org/1998/Math/MathML">=</mo>
+  <mrow>
+    <mi>X</mi>
+    <mo>\</mo>
+    <msub>
+      <mi>X</mi>
+      <mn>0</mn>
+    </msub>
+  </mrow>
+</math></p>
+
+<p>So h is one-to-one onto.</p>
+
+<p>Finally, because g is one-to-one and
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mi>g</mi>
+  <mo>&#8289;</mo>
+  <mrow>
+    <mo>(</mo>
+    <mi>Y</mi>
+    <mo>)</mo>
+  </mrow>
+  <mo>=</mo>
+  <mrow>
+    <mi>X</mi>
+    <mo>\</mo>
+    <msub>
+      <mi>X</mi>
+      <mn>0</mn>
+    </msub>
+  </mrow>
+</math> we have <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <msup>
+      <mi>h</mi>
+      <mn>-1</mn>
+    </msup>
+    <mo>&#8728;</mo>
+    <mi>g</mi>
+  </mrow>
+</math> is one-to-one onto. Finally
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <msup>
+    <mrow>
+      <mo>(</mo>
+      <mrow>
+        <msup>
+          <mi>h</mi>
+          <mn>-1</mn>
+        </msup>
+        <mo>&#8728;</mo>
+        <mi>g</mi>
+      </mrow>
+      <mo>)</mo>
+    </mrow>
+    <mn>-1</mn>
+  </msup>
+</math> is a one-to-one map from X onto Y. &#9633;</p>
+
+<p>Cantor-Bernstein Theorem allows to order sets by size. Thanks to the axiom
+of choice (AC), we can prove than every set is equipotent to a set of a
+particular class. Moreover, this class of sets, called cardinals, is
+well-ordered.</p>
+
+<p>The first cardinals are 0, 1, 2, 3...
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <msub>
+    <mi>&#8501;</mi>
+    <mn>0</mn>
+  </msub>
+</math>, <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <msub>
+    <mi>&#8501;</mi>
+    <mn>1</mn>
+  </msub>
+</math>, <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <msub>
+    <mi>&#8501;</mi>
+    <mn>2</mn>
+  </msub>
+</math>, ... We can extend the operations on
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mi>&#8469;</mi>
+</math> to cardinals, for instance
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <mi>&#955;</mi>
+    <mo>&#215;</mo>
+    <mi>&#956;</mi>
+  </mrow>
+</math> is the cardinal of the cartesian product and
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <msup>
+    <mi>&#955;</mi>
+    <mi>&#956;</mi>
+  </msup>
+</math> is the cardinal of the set of maps from
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mi>&#956;</mi>
+</math> to <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mi>&#955;</mi>
+</math>. To avoid ambiguity, the latter set is denoted by
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mmultiscripts>
+    <mi>&#955;</mi>
+    <none/>
+    <none/>
+    <mprescripts/>
+    <none/>
+    <none/>
+    <none/>
+    <mi>&#956;</mi>
+    <none/>
+    <none/>
+  </mmultiscripts>
+</math>. The existence of uncountable cardinals is given by the following
+theorem.</p>
+
+<h2>Cantor's Theorem</h2>
+
+<p><math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <mo>&#8704;</mo>
+    <mi>X</mi>
+    <mo>,</mo>
+    <mrow>
+      <mi>Card</mi>
+      <mrow>
+        <mo>(</mo>
+        <mrow>
+          <mo>&#8472;</mo>
+          <mo>(</mo>
+          <mi>X</mi>
+          <mo>)</mo>
+        </mrow>
+        <mo>)</mo>
+      </mrow>
+      <mo>&gt;</mo>
+      <mi>Card</mi>
+      <mrow>
+        <mo>(</mo>
+        <mi>X</mi>
+        <mo>)</mo>
+      </mrow>
+    </mrow>
+  </mrow>
+</math> </p>
+
+<p>Proof: Trivially, <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <mi>x</mi>
+    <mo>&#8614;</mo>
+    <mrow>
+      <mo>{</mo>
+      <mi>x</mi>
+      <mo>}</mo>
+    </mrow>
+  </mrow>
+</math> is a one-to-one map from X to its powerset, so
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <mi>Card</mi>
+    <mrow>
+      <mo>(</mo>
+      <mi>X</mi>
+      <mo>)</mo>
+    </mrow>
+  </mrow>
+  <mo>&#8804;</mo>
+  <mrow>
+    <mi>Card</mi>
+    <mrow>
+      <mo>(</mo>
+      <mrow>
+        <mo>&#8472;</mo>
+        <mo>(</mo>
+        <mi>X</mi>
+        <mo>)</mo>
+      </mrow>
+      <mo>)</mo>
+    </mrow>
+  </mrow>
+</math>.</p>
+
+<p>Suppose there exists <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <mi>f</mi>
+    <mo>:</mo>
+    <mi>X</mi>
+    <mo>&#8594;</mo>
+    <mrow>
+      <mo>&#8472;</mo>
+      <mo>(</mo>
+      <mi>X</mi>
+      <mo>)</mo>
+    </mrow>
+  </mrow>
+</math> onto. Define <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mi>Y</mi>
+  <mo>=</mo>
+  <mfenced open="{" close="}" separators="|">
+    <mrow>
+      <mi>x</mi>
+      <mo>&#8712;</mo>
+      <mi>X</mi>
+    </mrow>
+    <mrow>
+      <mi>x</mi>
+      <mo>&#8713;</mo>
+      <mi>f</mi>
+      <mrow>
+        <mo>(</mo>
+        <mi>x</mi>
+        <mo>)</mo>
+      </mrow>
+    </mrow>
+  </mfenced>
+</math> and take <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <msub>
+      <mi>x</mi>
+      <mn>0</mn>
+    </msub>
+    <mo>&#8712;</mo>
+    <mrow>
+      <msup>
+        <mi>f</mi>
+        <mrow>
+          <mo>&#8722;</mo>
+          <mn>1</mn>
+        </mrow>
+      </msup>
+      <mo>&#8289;</mo>
+      <mrow xmlns="http://www.w3.org/1998/Math/MathML">
+        <mo>(</mo>
+        <mi>Y</mi>
+        <mo>)</mo>
+      </mrow>
+    </mrow>
+  </mrow>
+</math>.</p>
+
+<p>If <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <msub>
+      <mi>x</mi>
+      <mn>0</mn>
+    </msub>
+    <mo>&#8712;</mo>
+    <mi>Y</mi>
+  </mrow>
+</math> then <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <msub>
+      <mi>x</mi>
+      <mn>0</mn>
+    </msub>
+    <mo>&#8713;</mo>
+    <mi>f</mi>
+    <mo>&#8289;</mo>
+    <mrow>
+      <mo>(</mo>
+      <msub>
+        <mi>x</mi>
+        <mn>0</mn>
+      </msub>
+      <mo>)</mo>
+    </mrow>
+  </mrow>
+</math> but <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mi>f</mi>
+  <mo>&#8289;</mo>
+  <mrow>
+    <mo>(</mo>
+    <msub>
+      <mi>x</mi>
+      <mn>0</mn>
+    </msub>
+    <mo>)</mo>
+  </mrow>
+  <mo>=</mo>
+  <mi>Y</mi>
+</math> and consequently <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <msub>
+      <mi>x</mi>
+      <mn>0</mn>
+    </msub>
+    <mo>&#8713;</mo>
+    <mi>Y</mi>
+  </mrow>
+</math>. In the same way, if <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <msub>
+      <mi>x</mi>
+      <mn>0</mn>
+    </msub>
+    <mo>&#8713;</mo>
+    <mi>Y</mi>
+  </mrow>
+</math> then you get <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <msub>
+      <mi>x</mi>
+      <mn>0</mn>
+    </msub>
+    <mo>&#8712;</mo>
+    <mi>Y</mi>
+  </mrow>
+</math>. A contradiction. &#9633;</p>
+
+<p>Note that <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <mi>f</mi>
+    <mo>:</mo>
+    <mo>{</mo>
+    <mrow>
+      <mtable>
+        <mtr>
+          <mtd>
+            <mrow>
+              <mo>&#8472;</mo>
+              <mo>(</mo>
+              <mi>X</mi>
+              <mo>)</mo>
+            </mrow>
+            <mo>&#8594;</mo>
+            <mmultiscripts>
+              <mrow>
+                <mo>{</mo>
+                <mn>0</mn>
+                <mo>;</mo>
+                <mn>1</mn>
+                <mo>}</mo>
+              </mrow>
+              <none/>
+              <none/>
+              <mprescripts/>
+              <none/>
+              <none/>
+              <none/>
+              <mi>X</mi>
+              <none/>
+              <none/>
+            </mmultiscripts>
+          </mtd>
+        </mtr>
+        <mtr>
+          <mtd>
+            <mi>P</mi>
+            <mo>&#8614;</mo>
+            <msub>
+              <mi>&#967;</mi>
+              <mi>P</mi>
+            </msub>
+          </mtd>
+        </mtr>
+      </mtable>
+    </mrow>
+  </mrow>
+</math> is one-to-one onto, so Cantor's Theorem can also be written
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <msup>
+      <mn>2</mn>
+      <mrow>
+        <mo>&#8739;</mo>
+        <mi>X</mi>
+        <mo>&#8739;</mo>
+      </mrow>
+    </msup>
+    <mo>&gt;</mo>
+    <mrow>
+      <mo>&#8739;</mo>
+      <mi>X</mi>
+      <mo>&#8739;</mo>
+    </mrow>
+  </mrow>
+</math>.</p>
+
+<p>Finally we get infinitely many infinite
+cardinals:<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <msub>
+      <mi>&#8501;</mi>
+      <mn>0</mn>
+    </msub>
+    <mo>&lt;</mo>
+    <msup>
+      <mn>2</mn>
+      <msub>
+        <mi>&#8501;</mi>
+        <mn>0</mn>
+      </msub>
+    </msup>
+    <mo>&lt;</mo>
+    <msup>
+      <mn>2</mn>
+      <msup>
+        <mn>2</mn>
+        <msub>
+          <mi>&#8501;</mi>
+          <mn>0</mn>
+        </msub>
+      </msup>
+    </msup>
+    <mo>&lt;</mo>
+    <msup>
+      <mn>2</mn>
+      <msup>
+        <mn>2</mn>
+        <msup>
+          <mn>2</mn>
+          <msub>
+            <mi>&#8501;</mi>
+            <mn>0</mn>
+          </msub>
+        </msup>
+      </msup>
+    </msup>
+    <mo>&lt;</mo>
+    <mtext>...</mtext>
+  </mrow>
+</math></p>
+
+<p>Let <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <msub>
+    <mi>&#8502;</mi>
+    <mn>0</mn>
+  </msub>
+  <mo>,</mo>
+  <msub>
+    <mo>&#8502;</mo>
+    <mn>1</mn>
+  </msub>
+  <mo>,</mo>
+  <msub>
+    <mo>&#8502;</mo>
+    <mn>2</mn>
+  </msub>
+  <mo>.</mo>
+  <mo>.</mo>
+  <mo>.</mo>
+</math> denote these cardinals, then generalized continuum hypothesis (GCH) is
+that this sequence gives <em>all</em> the infinite cardinals. In fact, we can
+show than even the weaker assumption
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <msub>
+    <mo>&#8502;</mo>
+    <mn>1</mn>
+  </msub>
+  <mo>=</mo>
+  <msub>
+    <mi>&#8501;</mi>
+    <mn>1</mn>
+  </msub>
+</math>, called the continuum hypothesis (CH) can nor be proved neither
+disproved from the axioms of set theory. Lots of other statements about
+cardinals have be shown to be undecidable. Nevertheless, in the next paragraph,
+we will see an interesting result that can be obtained if we assume the axiom
+of choice.</p>
+
+<h2>K&#246;nig's Theorem (AC)</h2>
+
+<p>Let <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <msub>
+    <mrow>
+      <mo>(</mo>
+      <msub>
+        <mi>&#955;</mi>
+        <mi>i</mi>
+      </msub>
+      <mo>)</mo>
+    </mrow>
+    <mrow>
+      <mi>i</mi>
+      <mo>&#8712;</mo>
+      <mi>I</mi>
+    </mrow>
+  </msub>
+</math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <msub>
+    <mrow>
+      <mo>(</mo>
+      <msub>
+        <mi>&#956;</mi>
+        <mi>i</mi>
+      </msub>
+      <mo>)</mo>
+    </mrow>
+    <mrow>
+      <mi>i</mi>
+      <mo>&#8712;</mo>
+      <mi>I</mi>
+    </mrow>
+  </msub>
+</math> be two families of cardinals indexed by a set I. If
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <mo>&#8704;</mo>
+    <mrow>
+      <mi>i</mi>
+      <mo>&#8712;</mo>
+      <mi>I</mi>
+    </mrow>
+    <mrow>
+      <mrow>
+        <msub>
+          <mi>&#955;</mi>
+          <mi>i</mi>
+        </msub>
+      </mrow>
+      <mo>&lt;</mo>
+      <mrow>
+        <msub>
+          <mi>&#956;</mi>
+          <mi>i</mi>
+        </msub>
+      </mrow>
+    </mrow>
+  </mrow>
+</math> then we have:</p>
+
+<p><math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <munder>
+      <mo>&#8721;</mo>
+      <mrow>
+        <mi>i</mi>
+        <mo>&#8712;</mo>
+        <mi>I</mi>
+      </mrow>
+    </munder>
+    <msub>
+      <mi>&#955;</mi>
+      <mi>i</mi>
+    </msub>
+  </mrow>
+  <mo>&lt;</mo>
+  <mrow>
+    <munder>
+      <mo>&#8719;</mo>
+      <mrow>
+        <mi>i</mi>
+        <mo>&#8712;</mo>
+        <mi>I</mi>
+      </mrow>
+    </munder>
+    <msub>
+      <mi>&#956;</mi>
+      <mi>i</mi>
+    </msub>
+  </mrow>
+</math> </p>
+
+<p>(By the way, these sum and product are defined as the cardinality of the
+sets <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mi>S</mi>
+</math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mi>P</mi>
+</math> below. One can easily check the compatibility of this definition with
+the case where <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mi>I</mi>
+</math> is finite)</p>
+
+<p>Proof:</p>
+
+<p>Define <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mi>S</mi>
+  <mo>=</mo>
+  <mfenced open="{" close="}" separators="|">
+    <mfenced>
+      <mi>&#945;</mi>
+      <mi>i</mi>
+    </mfenced>
+    <mrow>
+      <mrow>
+        <mo>(</mo>
+        <mrow>
+          <mi>i</mi>
+          <mo>&#8712;</mo>
+          <mi>I</mi>
+        </mrow>
+        <mo>)</mo>
+      </mrow>
+      <mo>&#8743;</mo>
+      <mrow>
+        <mo>(</mo>
+        <mrow>
+          <mi>&#945;</mi>
+          <mo>&lt;</mo>
+          <msub>
+            <mi>&#955;</mi>
+            <mi>i</mi>
+          </msub>
+        </mrow>
+        <mo>)</mo>
+      </mrow>
+    </mrow>
+  </mfenced>
+</math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mi>P</mi>
+  <mo>=</mo>
+  <mfenced open="{" close="}" separators="|">
+    <mrow>
+      <mi>f</mi>
+      <mo>&#8712;</mo>
+      <mmultiscripts>
+        <mrow>
+          <mo>(</mo>
+          <mrow>
+            <munder>
+              <mo>&#8899;</mo>
+              <mrow>
+                <mi>i</mi>
+                <mo>&#8712;</mo>
+                <mi>I</mi>
+              </mrow>
+            </munder>
+            <msub>
+              <mi>&#956;</mi>
+              <mi>i</mi>
+            </msub>
+          </mrow>
+          <mo>)</mo>
+        </mrow>
+        <none/>
+        <none/>
+        <mprescripts/>
+        <none/>
+        <none/>
+        <none/>
+        <mi>I</mi>
+        <none/>
+        <none/>
+      </mmultiscripts>
+    </mrow>
+    <mrow>
+      <mo>&#8704;</mo>
+      <mrow>
+        <mi>i</mi>
+        <mo>&#8712;</mo>
+        <mi>I</mi>
+      </mrow>
+      <mo>,</mo>
+      <mrow>
+        <mi>f</mi>
+        <mo>&#8289;</mo>
+        <mrow>
+          <mo>(</mo>
+          <mi>i</mi>
+          <mo>)</mo>
+        </mrow>
+        <mo>&#8712;</mo>
+        <msub>
+          <mi>&#956;</mi>
+          <mi>i</mi>
+        </msub>
+      </mrow>
+    </mrow>
+  </mfenced>
+</math>.</p>
+
+<p><math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <mi>f</mi>
+    <mo>:</mo>
+    <mo>&#8739;</mo>
+    <mrow>
+      <mtable>
+        <mtr>
+          <mtd>
+            <mi>S</mi>
+            <mo>&#8594;</mo>
+            <mi>P</mi>
+          </mtd>
+        </mtr>
+        <mtr>
+          <mtd>
+            <mfenced>
+              <mi>&#945;</mi>
+              <mi>i</mi>
+            </mfenced>
+            <mo>&#8614;</mo>
+            <mrow>
+              <mo>(</mo>
+              <mrow>
+                <mi>j</mi>
+                <mo>&#8614;</mo>
+                <mrow>
+                  <mo>{</mo>
+                  <mrow>
+                    <mtable>
+                      <mtr>
+                        <mtd>
+                          <mi>&#945;</mi>
+                          <mo>&#160;</mo>
+                          <mtext>if</mtext>
+                          <mrow>
+                            <mi>j</mi>
+                            <mo>=</mo>
+                            <mi>i</mi>
+                          </mrow>
+                        </mtd>
+                      </mtr>
+                      <mtr>
+                        <mtd>
+                          <msub>
+                            <mi>&#955;</mi>
+                            <mi>i</mi>
+                          </msub>
+                          <mo>&#160;</mo>
+                          <mi>otherwise</mi>
+                        </mtd>
+                      </mtr>
+                    </mtable>
+                  </mrow>
+                </mrow>
+              </mrow>
+              <mo>)</mo>
+            </mrow>
+          </mtd>
+        </mtr>
+      </mtable>
+    </mrow>
+  </mrow>
+</math> is clearly one-to-one, so we have
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <mrow>
+      <mo>&#8739;</mo>
+      <mi>S</mi>
+      <mo>&#8739;</mo>
+    </mrow>
+    <mo>&#8804;</mo>
+    <mo>&#8739;</mo>
+    <mi>P</mi>
+    <mo>&#8739;</mo>
+  </mrow>
+</math></p>
+
+<p>Suppose the equality. then there is
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <mrow>
+      <mi>g</mi>
+      <mo>:</mo>
+      <mi>P</mi>
+    </mrow>
+    <mo>&#8594;</mo>
+    <mi>S</mi>
+  </mrow>
+</math> one-to-one. Define for <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <mi>i</mi>
+    <mo>&#8712;</mo>
+    <mi>I</mi>
+  </mrow>
+</math>, <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <msub>
+    <mi>X</mi>
+    <mi>i</mi>
+  </msub>
+  <mo>=</mo>
+  <mfenced open="{" close="}" separators="|">
+    <mrow>
+      <mrow>
+        <msup>
+          <mi>g</mi>
+          <mn>-1</mn>
+        </msup>
+        <mo>&#8289;</mo>
+        <mrow>
+          <mo>(</mo>
+          <mfenced>
+            <mi>&#945;</mi>
+            <mi>i</mi>
+          </mfenced>
+          <mo>)</mo>
+        </mrow>
+        <mo>&#8289;</mo>
+        <mo>(</mo>
+        <mi>i</mi>
+        <mo>)</mo>
+      </mrow>
+    </mrow>
+    <mrow>
+      <mfenced>
+        <mi>&#945;</mi>
+        <mi>i</mi>
+      </mfenced>
+      <mo>&#8712;</mo>
+      <mi>S</mi>
+    </mrow>
+  </mfenced>
+</math>.</p>
+
+<p>For all <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <mi>i</mi>
+    <mo>&#8712;</mo>
+    <mi>I</mi>
+  </mrow>
+</math> we have <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <mrow>
+      <mo>&#8739;</mo>
+      <msub>
+        <mi>X</mi>
+        <mi>i</mi>
+      </msub>
+      <mo>&#8739;</mo>
+    </mrow>
+    <mo>&#8804;</mo>
+    <msub>
+      <mi>&#955;</mi>
+      <mi>i</mi>
+    </msub>
+    <mo>&lt;</mo>
+    <msub>
+      <mi>&#956;</mi>
+      <mi>i</mi>
+    </msub>
+  </mrow>
+</math> so by the axiom of choice, we can take
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <msub>
+      <mi>x</mi>
+      <mi>i</mi>
+    </msub>
+    <mo>&#8712;</mo>
+    <mrow>
+      <mrow>
+        <msub>
+          <mi>&#956;</mi>
+          <mi>i</mi>
+        </msub>
+      </mrow>
+      <mo>\</mo>
+      <msub>
+        <mi>X</mi>
+        <mi>i</mi>
+      </msub>
+    </mrow>
+  </mrow>
+</math>.</p>
+
+<p>Then for <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <mfenced>
+      <mi>&#945;</mi>
+      <mi>j</mi>
+    </mfenced>
+    <mo>=</mo>
+    <mi>g</mi>
+    <mo>(</mo>
+    <mrow>
+      <mrow>
+        <mi>i</mi>
+        <mo>&#8614;</mo>
+        <msub>
+          <mi>x</mi>
+          <mi>i</mi>
+        </msub>
+      </mrow>
+      <mo>)</mo>
+    </mrow>
+  </mrow>
+</math> we have <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <msub>
+      <mi>x</mi>
+      <mi>j</mi>
+    </msub>
+    <mo>&#8712;</mo>
+    <msub>
+      <mi>X</mi>
+      <mi>j</mi>
+    </msub>
+  </mrow>
+</math>. A contradiction. &#9633;</p>
+
+<p>Note that Cantor's Theorem becomes a corollary of K&#246;nig's Theorem as we
+have: </p>
+
+<p><math xmlns="http://www.w3.org/1998/Math/MathML">
+  <msup>
+    <mn>2</mn>
+    <mrow>
+      <mo>&#8739;</mo>
+      <mi>X</mi>
+      <mo>&#8739;</mo>
+    </mrow>
+  </msup>
+  <mo>=</mo>
+  <mrow>
+    <munder>
+      <mo>&#8719;</mo>
+      <mrow>
+        <mi>i</mi>
+        <mo>&#8712;</mo>
+        <mi>X</mi>
+      </mrow>
+    </munder>
+    <mn>2</mn>
+  </mrow>
+  <mo>&gt;</mo>
+  <mrow>
+    <munder>
+      <mo>&#8721;</mo>
+      <mrow>
+        <mi>i</mi>
+        <mo>&#8712;</mo>
+        <mi>X</mi>
+      </mrow>
+    </munder>
+    <mn>1</mn>
+  </mrow>
+  <mo>=</mo>
+  <mrow>
+    <mo>&#8739;</mo>
+    <mi>X</mi>
+    <mo>&#8739;</mo>
+  </mrow>
+</math></p>
+
+<h2>Miscellaneous formulae </h2>
+
+<p>The famous Shelah's inequality:
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mrow>
+    <msup>
+      <msub>
+        <mi>&#8501;</mi>
+        <mi>&#969;</mi>
+      </msub>
+      <msub>
+        <mi>&#8501;</mi>
+        <mn>0</mn>
+      </msub>
+    </msup>
+    <mo>&#8804;</mo>
+    <mrow>
+      <msup>
+        <mn>2</mn>
+        <msub>
+          <mi>&#8501;</mi>
+          <mn>0</mn>
+        </msub>
+      </msup>
+      <mo>+</mo>
+      <msub>
+        <mi>&#8501;</mi>
+        <msub>
+          <mi>&#969;</mi>
+          <mn>4</mn>
+        </msub>
+      </msub>
+    </mrow>
+  </mrow>
+</math></p>
+
+<p>Two theorems that use the <em>arrow notation</em>:</p>
+<ol>
+  <li><math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mrow>
+        <mo>&#8704;</mo>
+        <mrow>
+          <mrow>
+            <mi>n</mi>
+            <mo>,</mo>
+            <mi>k</mi>
+          </mrow>
+          <mo>&#8712;</mo>
+          <mi>&#969;</mi>
+        </mrow>
+      </mrow>
+      <mo>,</mo>
+      <mrow>
+        <msub>
+          <mi>&#8501;</mi>
+          <mn>0</mn>
+        </msub>
+        <mo>&#8594;</mo>
+        <msubsup>
+          <mrow>
+            <mo>(</mo>
+            <msub>
+              <mi>&#8501;</mi>
+              <mn>0</mn>
+            </msub>
+            <mo>)</mo>
+          </mrow>
+          <mi>k</mi>
+          <mi>n</mi>
+        </msubsup>
+      </mrow>
+    </math> (Ramsey's theorem)</li>
+  <li>Define for each <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>&#954;</mi>
+    </math>, <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <msub>
+        <mi>exp</mi>
+        <mn>0</mn>
+      </msub>
+      <mrow>
+        <mo>(</mo>
+        <mi>&#954;</mi>
+        <mo>)</mo>
+      </mrow>
+      <mo>=</mo>
+      <mi>&#954;</mi>
+    </math> and for all <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>n</mi>
+    </math>,<math xmlns="http://www.w3.org/1998/Math/MathML">
+      <msub>
+        <mi>exp</mi>
+        <mrow>
+          <mi>n</mi>
+          <mo>+</mo>
+          <mn>1</mn>
+        </mrow>
+      </msub>
+      <mrow>
+        <mo>(</mo>
+        <mi>&#954;</mi>
+        <mo>)</mo>
+      </mrow>
+      <mo>=</mo>
+      <msup>
+        <mn>2</mn>
+        <mrow>
+          <msub>
+            <mi>exp</mi>
+            <mi>n</mi>
+          </msub>
+          <mrow>
+            <mo>(</mo>
+            <mi>&#954;</mi>
+            <mo>)</mo>
+          </mrow>
+        </mrow>
+      </msup>
+    </math>. 
+    <p>Then, for all &#954;, <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mrow>
+        <msup>
+          <mrow>
+            <mo>(</mo>
+            <msub>
+              <mi>exp</mi>
+              <mi>n</mi>
+            </msub>
+            <mrow>
+              <mo>(</mo>
+              <mi>&#954;</mi>
+              <mo>)</mo>
+            </mrow>
+            <mo>)</mo>
+          </mrow>
+          <mo>+</mo>
+        </msup>
+        <mo>&#8594;</mo>
+        <msubsup>
+          <mrow>
+            <mo>(</mo>
+            <msup>
+              <mi>&#954;</mi>
+              <mo>+</mo>
+            </msup>
+            <mo>)</mo>
+          </mrow>
+          <mi>&#954;</mi>
+          <mrow>
+            <mi>n</mi>
+            <mo>+</mo>
+            <mn>1</mn>
+          </mrow>
+        </msubsup>
+      </mrow>
+    </math> (Erd&#246;s-Rado Theorem).</p>
+    <p>In particular, for <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mi>&#954;</mi>
+      <mo>=</mo>
+      <msub>
+        <mi>&#8501;</mi>
+        <mn>0</mn>
+      </msub>
+    </math>, <math xmlns="http://www.w3.org/1998/Math/MathML">
+      <mrow>
+        <msup>
+          <msub>
+            <mo>&#8502;</mo>
+            <mi>n</mi>
+          </msub>
+          <mo>+</mo>
+        </msup>
+        <mo>&#8594;</mo>
+        <msubsup>
+          <mrow>
+            <mo>(</mo>
+            <msub>
+              <mi>&#8501;</mi>
+              <mn>1</mn>
+            </msub>
+            <mo>)</mo>
+          </mrow>
+          <msub>
+            <mi>&#8501;</mi>
+            <mn>0</mn>
+          </msub>
+          <mrow>
+            <mi>n</mi>
+            <mo>+</mo>
+            <mn>1</mn>
+          </mrow>
+        </msubsup>
+      </mrow>
+    </math>.</p>
+  </li>
+</ol>
+
+<p><math xmlns="http://www.w3.org/1998/Math/MathML">
+  <mi>cf</mi>
+  <mrow>
+    <mo>(</mo>
+    <msup>
+      <msub>
+        <mi>&#8501;</mi>
+        <mi>&#945;</mi>
+      </msub>
+      <msub>
+        <mi>&#8501;</mi>
+        <mi>&#946;</mi>
+      </msub>
+    </msup>
+    <mo>)</mo>
+  </mrow>
+  <mo>&gt;</mo>
+  <msub>
+    <mi>&#8501;</mi>
+    <mi>&#946;</mi>
+  </msub>
+</math></p>
+
+<p>Hausdorff formula : <math xmlns="http://www.w3.org/1998/Math/MathML">
+  <msup>
+    <msub>
+      <mi>&#8501;</mi>
+      <mrow>
+        <mi>&#945;</mi>
+        <mo>+</mo>
+        <mn>1</mn>
+      </mrow>
+    </msub>
+    <msub>
+      <mi>&#8501;</mi>
+      <mi>&#946;</mi>
+    </msub>
+  </msup>
+  <mo>=</mo>
+  <msup>
+    <msub>
+      <mi>&#8501;</mi>
+      <mi>&#945;</mi>
+    </msub>
+    <msub>
+      <mi>&#8501;</mi>
+      <mi>&#946;</mi>
+    </msub>
+  </msup>
+  <msub>
+    <mrow>
+      <mo>.</mo>
+      <mo>&#8501;</mo>
+    </mrow>
+    <mrow>
+      <mi>&#945;</mi>
+      <mo>+</mo>
+      <mn>1</mn>
+    </mrow>
+  </msub>
+</math></p>
+</body>
+</html>

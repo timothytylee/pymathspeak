@@ -1,0 +1,11 @@
+StartBold Chapter 7 - Fractions EndBold
+StartFraction 1 Over x EndFraction
+a minus StartFraction b plus c Over d minus e EndFraction times f
+StartStartFraction StartFraction x Over y EndFraction OverOver z EndEndFraction not-equals StartStartFraction x OverOver StartFraction y Over z EndFraction EndEndFraction
+StartStartStartFraction StartStartFraction left-parenthesis 1 minus x right-parenthesis StartFraction d Over d x EndFraction left-parenthesis 2 x right-parenthesis minus 2 x StartFraction d Over d x EndFraction left-parenthesis 1 minus x right-parenthesis OverOver left-parenthesis 1 minus x right-parenthesis squared EndEndFraction OverOverOver 1 plus left-parenthesis StartFraction 2 x Over 1 minus x EndFraction right-parenthesis squared EndEndEndFraction
+a 0 plus StartStartStartStartFraction 1 OverOverOverOver a 1 plus StartStartStartFraction 1 OverOverOver a 2 plus StartStartFraction 1 OverOver ellipsis plus StartFraction 1 Over a SubScript n EndFraction EndEndFraction EndEndEndFraction EndEndEndEndFraction
+one-half plus two-halves plus three-halves plus four-halves plus ellipsis equals sigma-summation UnderScript n equals 1 OverScript infinity EndScripts StartFraction n Over 2 EndFraction
+StartFraction 20 Over 5 EndFraction times StartFraction 1 Over 100 EndFraction equals one-twenty-fifth
+StartFraction three-fifths Over 8 EndFraction equals three-fifths times one-eighth
+3 and five-eighths equals StartFraction 29 Over 8 EndFraction
+a 0 plus StartStartStartFraction b 1 OverOverOver a 1 plus StartStartFraction b 2 OverOver a 2 plus StartFraction b 3 Over a 3 plus ellipsis EndFraction EndEndFraction EndEndEndFraction equals a 0 plus StartFraction b 1 Over a 1 EndFraction plus StartFraction b 2 Over a 2 EndFraction plus ellipsis

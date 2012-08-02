@@ -1,0 +1,17 @@
+StartBold Chapter 11 - Modifiers and Stacked Expressions EndBold
+ModifyingAbove x with two-dots
+ModifyingAbove x plus y with right-arrow
+ModifyingAbove x with caret
+ModifyingBelow x with dot
+x Over-tilde
+x Over-bar
+y Under-tilde
+x Over-bar Over-bar
+y Over-bar Over-bar Under-bar Under-bar
+ModifyingBelowBelow ModifyingBelow a plus b with bar with asterisk
+ModifyingAbove ModifyingBelow a plus b with left-arrow with right-arrow UnderScript dot OverScript dot EndScripts
+ModifyingAboveAbove ModifyingAbove x plus y with tilde with bar
+sigma-summation UnderScript n equals 1 OverScript infinity EndScripts a SubScript n
+ModifyingBelow x plus y with bar UnderScript a equals 5 UnderUnderScript b equals 3 EndScripts
+ModifyingAbove x plus y with bar OverScript n equals 1 OverOverScript m equals 2 EndScripts
+seven-twelfths equals .58 ModifyingEachAbove 3 3 3 with dot
