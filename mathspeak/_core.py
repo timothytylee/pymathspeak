@@ -185,69 +185,69 @@ IDENTIFIER_DICT={
 	u"\u03fe":{None:u"Dotted-lunate-sigma"},
 	u"\u03ff":{None:u"Reversed-dotted-lunate-sigma"},
 	u"\u221e":{None:u"infinity"},
-	"lim":    {None:u"limit"},
-	"ln":     {
+	"lim":{None:u"limit"},
+	"ln":{
 		VERB_VERBOSE:u"natural-log",
 		None:        u"log-e"},
-	"sin":    {None:u"sine"},
-	"cos":    {None:u"cosine"},
-	"tan":    {None:u"tangent"},
-	"cot":    {None:u"cotangent"},
-	"sec":    {None:u"secant"},
-	"csc":    {None:u"cosecant"},
-	"asin":   {None:u"arc-sine"},
-	"acos":   {None:u"arc-cosine"},
-	"atan":   {None:u"arc-tangent"},
-	"acot":   {None:u"arc-cotangent"},
-	"asec":   {None:u"arc-secant"},
-	"acsc":   {None:u"arc-cosecant"},
-	"arcsin": {None:u"arc-sine"},
-	"arccos": {None:u"arc-cosine"},
-	"arctan": {None:u"arc-tangent"},
-	"arccot": {None:u"arc-cotangent"},
-	"arcsec": {None:u"arc-secant"},
-	"arccsc": {None:u"arc-cosecant"},
+	"sin":{None:u"sine"},
+	"cos":{None:u"cosine"},
+	"tan":{None:u"tangent"},
+	"cot":{None:u"cotangent"},
+	"sec":{None:u"secant"},
+	"csc":{None:u"cosecant"},
+	"asin":{None:u"arc-sine"},
+	"acos":{None:u"arc-cosine"},
+	"atan":{None:u"arc-tangent"},
+	"acot":{None:u"arc-cotangent"},
+	"asec":{None:u"arc-secant"},
+	"acsc":{None:u"arc-cosecant"},
+	"arcsin":{None:u"arc-sine"},
+	"arccos":{None:u"arc-cosine"},
+	"arctan":{None:u"arc-tangent"},
+	"arccot":{None:u"arc-cotangent"},
+	"arcsec":{None:u"arc-secant"},
+	"arccsc":{None:u"arc-cosecant"},
 	}
 
 
 # Lookup table for <mo> operators
 OPERATOR_DICT={
-	"=":      {None:u"equals"},
-	",":      {None:u"comma"},
-	".":      {None:u"period"},
-	":":      {None:u"colon"},
-	";":      {None:u"semicolon"},
-	"+":      {None:u"plus"},
-	"-":      {None:u"minus"},
-	"#":      {
+	"=":{None:u"equals"},
+	",":{None:u"comma"},
+	".":{None:u"period"},
+	":":{None:u"colon"},
+	";":{None:u"semicolon"},
+	"+":{None:u"plus"},
+	"-":{None:u"minus"},
+	"#":{
 		VERB_VERBOSE:u"number-sign",
 		None:        u"num-sign"},
-	"$":      {None:u"dollar-sign"},
-	"<":      {None:u"less-than"},
-	">":      {None:u"greater-than"},
-	"~":      {None:u"tilde"},
-	"^":      {None:u"circumflex-accent"},
-	"_":      {None:u"low-line"},
-	"|":      {None:u"vertical-line"},
-	"{":      {
+	"$":{None:u"dollar-sign"},
+	"<":{None:u"less-than"},
+	">":{None:u"greater-than"},
+	"~":{None:u"tilde"},
+	"^":{None:u"circumflex-accent"},
+	"_":{None:u"low-line"},
+	"|":{None:u"vertical-line"},
+	"{":{
 		VERB_SUPERBRIEF:u"L curly-brace",
 		None:           u"left-curly-brace"},
-	"}":      {
+	"}":{
 		VERB_SUPERBRIEF:u"R curly-brace",
 		None:           u"right-curly-brace"},
-	"[":      {
+	"[":{
 		VERB_SUPERBRIEF:u"L brack",
 		VERB_BRIEF:     u"left-brack",
 		None:           u"left-bracket"},
-	"]":      {
+	"]":{
 		VERB_SUPERBRIEF:u"R brack",
 		VERB_BRIEF:     u"right-brack",
 		None:           u"right-bracket"},
-	"(":      {
+	"(":{
 		VERB_SUPERBRIEF:u"L p'ren",
 		VERB_BRIEF:     u"left-p'ren",
 		None:           u"left-parenthesis"},
-	")":      {
+	")":{
 		VERB_SUPERBRIEF:u"R p'ren",
 		VERB_BRIEF:     u"right-p'ren",
 		None:           u"right-parenthesis"},
@@ -642,19 +642,19 @@ OPERATOR_DICT={
 		VERB_SUPERBRIEF:u"R bag-brack",
 		VERB_BRIEF:     u"right-bag-brack",
 		None:           u"right-bag-bracket"},
-	u"\u27e8":      {
+	u"\u27e8":{
 		VERB_SUPERBRIEF:u"L angle-brack",
 		VERB_BRIEF:     u"left-angle-brack",
 		None:           u"left-angle-bracket"},
-	u"\u27e9":      {
+	u"\u27e9":{
 		VERB_SUPERBRIEF:u"R angle-brack",
 		VERB_BRIEF:     u"right-angle-brack",
 		None:           u"right-angle-bracket"},
-	u"\u27ea":      {
+	u"\u27ea":{
 		VERB_SUPERBRIEF:u"L double-angle-brack",
 		VERB_BRIEF:     u"left-double-angle-brack",
 		None:           u"left-double-angle-bracket"},
-	u"\u27eb":      {
+	u"\u27eb":{
 		VERB_SUPERBRIEF:u"R double-angle-brack",
 		VERB_BRIEF:     u"right-double-angle-brack",
 		None:           u"right-double-angle-bracket"},
@@ -689,67 +689,67 @@ OPERATOR_DICT={
 		VERB_SUPERBRIEF:u"R white-p'ren",
 		VERB_BRIEF:     u"right-white-p'ren",
 		None:           u"right-white-parenthesis"},
-	u"\u2987":      {
+	u"\u2987":{
 		VERB_SUPERBRIEF:u"L image-brack",
 		VERB_BRIEF:     u"left-image-brack",
 		None:           u"left-image-bracket"},
-	u"\u2988":      {
+	u"\u2988":{
 		VERB_SUPERBRIEF:u"R image-brack",
 		VERB_BRIEF:     u"right-image-brack",
 		None:           u"right-image-bracket"},
-	u"\u2989":      {
+	u"\u2989":{
 		VERB_SUPERBRIEF:u"L bind-brack",
 		VERB_BRIEF:     u"left-bind-brack",
 		None:           u"left-binding-bracket"},
-	u"\u298a":      {
+	u"\u298a":{
 		VERB_SUPERBRIEF:u"R bind-brack",
 		VERB_BRIEF:     u"right-bind-brack",
 		None:           u"right-binding-bracket"},
-	u"\u298b":      {
+	u"\u298b":{
 		VERB_SUPERBRIEF:u"L underbar-brack",
 		VERB_BRIEF:     u"left-underbar-brack",
 		None:           u"left-underbar-bracket"},
-	u"\u298c":      {
+	u"\u298c":{
 		VERB_SUPERBRIEF:u"R underbar-brack",
 		VERB_BRIEF:     u"right-underbar-brack",
 		None:           u"right-underbar-bracket"},
-	u"\u298d":      {
+	u"\u298d":{
 		VERB_SUPERBRIEF:u"L top-tick-brack",
 		VERB_BRIEF:     u"left-top-tick-brack",
 		None:           u"left-top-tick-bracket"},
-	u"\u298e":      {
+	u"\u298e":{
 		VERB_SUPERBRIEF:u"R bottom-tick-brack",
 		VERB_BRIEF:     u"right-bottom-tick-brack",
 		None:           u"right-bottom-tick-bracket"},
-	u"\u298f":      {
+	u"\u298f":{
 		VERB_SUPERBRIEF:u"L bottom-tick-brack",
 		VERB_BRIEF:     u"left-bottom-tick-brack",
 		None:           u"left-bottom-tick-bracket"},
-	u"\u2990":      {
+	u"\u2990":{
 		VERB_SUPERBRIEF:u"R top-tick-brack",
 		VERB_BRIEF:     u"right-top-tick-brack",
 		None:           u"right-top-tick-bracket"},
-	u"\u2991":      {
+	u"\u2991":{
 		VERB_SUPERBRIEF:u"L dotted-angle-brack",
 		VERB_BRIEF:     u"left-dotted-angle-brack",
 		None:           u"left-dotted-angle-bracket"},
-	u"\u2992":      {
+	u"\u2992":{
 		VERB_SUPERBRIEF:u"R dotted-angle-brack",
 		VERB_BRIEF:     u"right-dotted-angle-brack",
 		None:           u"right-dotted-angle-bracket"},
-	u"\u2993":      {
+	u"\u2993":{
 		VERB_SUPERBRIEF:u"L arc-less-than-brack",
 		VERB_BRIEF:     u"left-arc-less-than-brack",
 		None:           u"left-arc-less-than-bracket"},
-	u"\u2994":      {
+	u"\u2994":{
 		VERB_SUPERBRIEF:u"R arc-greater-than-brack",
 		VERB_BRIEF:     u"right-arc-greater-than-brack",
 		None:           u"right-arc-greater-than-bracket"},
-	u"\u2995":      {
+	u"\u2995":{
 		VERB_SUPERBRIEF:u"L double-arc-greater-than-brack",
 		VERB_BRIEF:     u"left-double-arc-greater-than-brack",
 		None:           u"left-double-arc-greater-than-bracket"},
-	u"\u2996":      {
+	u"\u2996":{
 		VERB_SUPERBRIEF:u"R double-arc-less-than-brack",
 		VERB_BRIEF:     u"right-double-arc-less-than-brack",
 		None:           u"right-double-arc-less-than-bracket"},
@@ -857,11 +857,11 @@ OPERATOR_DICT={
 	u"\u29f9":{None:u"big-reverse-solidus"},
 	u"\u29fa":{None:u"double-plus"},
 	u"\u29fb":{None:u"triple-plus"},
-	u"\u29fc":      {
+	u"\u29fc":{
 		VERB_SUPERBRIEF:u"L curve-angle-brack",
 		VERB_BRIEF:     u"left-curved-angle-brack",
 		None:           u"left-curved-angle-bracket"},
-	u"\u29fd":      {
+	u"\u29fd":{
 		VERB_SUPERBRIEF:u"R curve-angle-brack",
 		VERB_BRIEF:     u"right-curved-angle-brack",
 		None:           u"right-curved-angle-bracket"},
