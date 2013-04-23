@@ -1,14 +1,19 @@
-# -*- encoding: utf-8 -*-
+#-*- encoding: utf-8 -*-
 #
 #Implementation of MathSpeak Core Specification Grammer Rules from:
 #    http://www.gh-mathspeak.com/examples/grammar-rules/
 #This file is covered by the GNU General Public License.
 #See the file COPYING for more details.
-#Copyright 2012 World Light Information Limited and Hong Kong Blind Union.
+#Copyright 2012-2013 World Light Information Limited and Hong Kong Blind Union.
 
 
 from xml.parsers import expat
 import re
+import sys
+
+
+# Compatibility fixes for Python 2.x
+if sys.version_info[0]<3:  range=xrange
 
 
 # Verbosity levels
@@ -19,87 +24,87 @@ VERB_SUPERBRIEF=2
 
 # Lookup table for <mathvariant> styles
 VARIANT_DICT={
-	"bold":        {None:u"Bold"},
-	"italic":      {None:u"Italic"},
-	"bold-italic": {None:u"BoldItalic"},
-	"fraktur":     {None:u"German"},
-	"bold-fraktur":{None:u"BoldGerman"},
+	u"bold":        {None:u"Bold"},
+	u"italic":      {None:u"Italic"},
+	u"bold-italic": {None:u"BoldItalic"},
+	u"fraktur":     {None:u"German"},
+	u"bold-fraktur":{None:u"BoldGerman"},
 	}
 
 
 # Lookup table for MathSpeak textual descriptions
 LABEL_DICT={
-	"number":     {
+	u"number":     {
 		VERB_VERBOSE:u"Number",
 		None:        u"Num"},
-	"row":        {None:u"Row"},
-	"column":     {None:u"Column"},
-	"label":      {None:u"Label"},
-	"error":      {None:u"Error"},
-	"capital":    {None:u"Upper"},
-	"capword":    {None:u"UpperWord"},
-	"positive":   {None:u"positive"},
-	"negative":   {None:u"negative"},
-	"start":      {None:u"Start"},
-	"end":        {None:u"End"},
-	"script":     {None:u"Script"},
-	"scriptclose":{
+	u"row":        {None:u"Row"},
+	u"column":     {None:u"Column"},
+	u"label":      {None:u"Label"},
+	u"error":      {None:u"Error"},
+	u"capital":    {None:u"Upper"},
+	u"capword":    {None:u"UpperWord"},
+	u"positive":   {None:u"positive"},
+	u"negative":   {None:u"negative"},
+	u"start":      {None:u"Start"},
+	u"end":        {None:u"End"},
+	u"script":     {None:u"Script"},
+	u"scriptclose":{
 		VERB_VERBOSE:u"Script",
 		None:        u""},
-	"scriptend":  {None:u"EndScripts"},
-	"under":      {None:u"Under"},
-	"over":       {None:u"Over"},
-	"above":      {None:u"Above"},
-	"below":      {None:u"Below"},
-	"baseline":   {
+	u"scriptend":  {None:u"EndScripts"},
+	u"under":      {None:u"Under"},
+	u"over":       {None:u"Over"},
+	u"above":      {None:u"Above"},
+	u"below":      {None:u"Below"},
+	u"baseline":   {
 		VERB_VERBOSE:u"Baseline",
 		None:        u"Base"},
-	"super":      {
+	u"super":      {
 		VERB_VERBOSE:u"Super",
 		None:        u"Sup"},
-	"sub":        {None:u"Sub"},
-	"string":     {None:u"String"},
-	"blank":	  {None:u"Blank"},
-	"layout":     {None:u"Layout"},
-	"enlarged":   {None:u"Enlarged"},
-	"matrix":     {None:u"Matrix"},
-	"determinant":{None:u"Determinant"},
-	"binomial":   {None:u"BinomialOrMatrix"},
-	"choose":     {None:u"Choose"},
-	"absolute":   {None:u"AbsoluteValue"},
-	"modifying":  {
+	u"sub":        {None:u"Sub"},
+	u"string":     {None:u"String"},
+	u"blank":	   {None:u"Blank"},
+	u"layout":     {None:u"Layout"},
+	u"enlarged":   {None:u"Enlarged"},
+	u"matrix":     {None:u"Matrix"},
+	u"determinant":{None:u"Determinant"},
+	u"binomial":   {None:u"BinomialOrMatrix"},
+	u"choose":     {None:u"Choose"},
+	u"absolute":   {None:u"AbsoluteValue"},
+	u"modifying":  {
 		VERB_VERBOSE:u"Modifying",
 		None:        u"Mod"},
-	"each":       {None:u"Each"},
-	"with":       {None:u"with"},
-	"by":         {None:u"by"},
-	"point":      {None:u"point"},
-	"and":        {None:u"and"},
-	"..":         {None:u"two-dots"},
-	"once":       {None:u"Once"},
-	"twice":      {None:u"Twice"},
-	"fracnest":   {None:u"Nest"},
-	"fracover":   {None:u"Over"},
-	"frac":   {
+	u"each":       {None:u"Each"},
+	u"with":       {None:u"with"},
+	u"by":         {None:u"by"},
+	u"point":      {None:u"point"},
+	u"and":        {None:u"and"},
+	u"..":         {None:u"two-dots"},
+	u"once":       {None:u"Once"},
+	u"twice":      {None:u"Twice"},
+	u"fracnest":   {None:u"Nest"},
+	u"fracover":   {None:u"Over"},
+	u"frac":   {
 		VERB_SUPERBRIEF:u"Frac",
 		VERB_BRIEF:     u"Frac",
 		None:           u"Fraction"},
-	"rootnest":   {
+	u"rootnest":   {
 		VERB_SUPERBRIEF:u"Nest",
 		VERB_BRIEF:     u"Nest",
 		None:           u"Nested"},
-	"rootindex":  {
+	u"rootindex":  {
 		VERB_SUPERBRIEF:u"Index",
 		None:           u"RootIndex"},
-	"rootstart":  {
+	u"rootstart":  {
 		VERB_SUPERBRIEF:u"Root",
 		None:           u"StartRoot"},
-	"rootend":    {None:u"EndRoot"},
-	"squared":    {None:u"squared"},
-	"cubed":      {None:u"cubed"},
-	"cancel":     {None:u"CrossOut"},
-	"cancelwith": {None:u"With"},
-	"set":        {None:u"Set"},
+	u"rootend":    {None:u"EndRoot"},
+	u"squared":    {None:u"squared"},
+	u"cubed":      {None:u"cubed"},
+	u"cancel":     {None:u"CrossOut"},
+	u"cancelwith": {None:u"With"},
+	u"set":        {None:u"Set"},
 	}
 
 
@@ -185,76 +190,76 @@ IDENTIFIER_DICT={
 	u"\u03fe":{None:u"Dotted-lunate-sigma"},
 	u"\u03ff":{None:u"Reversed-dotted-lunate-sigma"},
 	u"\u221e":{None:u"infinity"},
-	"lim":{None:u"limit"},
-	"ln":{
+	u"lim":{None:u"limit"},
+	u"ln":{
 		VERB_VERBOSE:u"natural-log",
 		None:        u"log-e"},
-	"sin":{None:u"sine"},
-	"cos":{None:u"cosine"},
-	"tan":{None:u"tangent"},
-	"cot":{None:u"cotangent"},
-	"sec":{None:u"secant"},
-	"csc":{None:u"cosecant"},
-	"asin":{None:u"arc-sine"},
-	"acos":{None:u"arc-cosine"},
-	"atan":{None:u"arc-tangent"},
-	"acot":{None:u"arc-cotangent"},
-	"asec":{None:u"arc-secant"},
-	"acsc":{None:u"arc-cosecant"},
-	"arcsin":{None:u"arc-sine"},
-	"arccos":{None:u"arc-cosine"},
-	"arctan":{None:u"arc-tangent"},
-	"arccot":{None:u"arc-cotangent"},
-	"arcsec":{None:u"arc-secant"},
-	"arccsc":{None:u"arc-cosecant"},
+	u"sin":{None:u"sine"},
+	u"cos":{None:u"cosine"},
+	u"tan":{None:u"tangent"},
+	u"cot":{None:u"cotangent"},
+	u"sec":{None:u"secant"},
+	u"csc":{None:u"cosecant"},
+	u"asin":{None:u"arc-sine"},
+	u"acos":{None:u"arc-cosine"},
+	u"atan":{None:u"arc-tangent"},
+	u"acot":{None:u"arc-cotangent"},
+	u"asec":{None:u"arc-secant"},
+	u"acsc":{None:u"arc-cosecant"},
+	u"arcsin":{None:u"arc-sine"},
+	u"arccos":{None:u"arc-cosine"},
+	u"arctan":{None:u"arc-tangent"},
+	u"arccot":{None:u"arc-cotangent"},
+	u"arcsec":{None:u"arc-secant"},
+	u"arccsc":{None:u"arc-cosecant"},
 	}
 
 
 # Lookup table for <mo> operators
 OPERATOR_DICT={
-	"=":{None:u"equals"},
-	",":{None:u"comma"},
-	".":{None:u"period"},
-	":":{None:u"colon"},
-	";":{None:u"semicolon"},
-	"+":{None:u"plus"},
-	"-":{None:u"minus"},
-	"#":{
+	u"=":{None:u"equals"},
+	u",":{None:u"comma"},
+	u".":{None:u"period"},
+	u":":{None:u"colon"},
+	u";":{None:u"semicolon"},
+	u"+":{None:u"plus"},
+	u"-":{None:u"minus"},
+	u"#":{
 		VERB_VERBOSE:u"number-sign",
 		None:        u"num-sign"},
-	"$":{None:u"dollar-sign"},
-	"<":{None:u"less-than"},
-	">":{None:u"greater-than"},
-	"~":{None:u"tilde"},
-	"^":{None:u"circumflex-accent"},
-	"_":{None:u"low-line"},
-	"|":{None:u"vertical-line"},
-	"{":{
+	u"$":{None:u"dollar-sign"},
+	u"<":{None:u"less-than"},
+	u">":{None:u"greater-than"},
+	u"~":{None:u"tilde"},
+	u"^":{None:u"circumflex-accent"},
+	u"_":{None:u"low-line"},
+	u"|":{None:u"vertical-line"},
+	u"{":{
 		VERB_SUPERBRIEF:u"L curly-brace",
 		None:           u"left-curly-brace"},
-	"}":{
+	u"}":{
 		VERB_SUPERBRIEF:u"R curly-brace",
 		None:           u"right-curly-brace"},
-	"[":{
+	u"[":{
 		VERB_SUPERBRIEF:u"L brack",
 		VERB_BRIEF:     u"left-brack",
 		None:           u"left-bracket"},
-	"]":{
+	u"]":{
 		VERB_SUPERBRIEF:u"R brack",
 		VERB_BRIEF:     u"right-brack",
 		None:           u"right-bracket"},
-	"(":{
+	u"(":{
 		VERB_SUPERBRIEF:u"L p'ren",
 		VERB_BRIEF:     u"left-p'ren",
 		None:           u"left-parenthesis"},
-	")":{
+	u")":{
 		VERB_SUPERBRIEF:u"R p'ren",
 		VERB_BRIEF:     u"right-p'ren",
 		None:           u"right-parenthesis"},
 	u"\u00af":{None:u"bar"},
 	u"\u00b1":{None:u"plus-or-minus"},
 	u"\u00b7":{None:u"dot"},
-	u'\u00d7':{None:u"times"},
+	u"\u00d7":{None:u"times"},
 	u"\u00f7":{None:u"divided-by"},
 	u"\u02d9":{None:u"dot"},
 	u"\u2016":{None:u"double-vertical-lines"},
@@ -947,21 +952,21 @@ OPERATOR_DICT={
 
 
 # Regular expressions for MathML parser
-RE_SINGLE_LETTER=re.compile("\D$")
-RE_NUMBER=re.compile("[\d.,]+$")
-RE_SIGNED_NUMBER=re.compile("[+-]?[\d.,]+$")
-RE_DECIMAL=re.compile("[\d]+$")
-RE_SINGLE_DIGIT=re.compile("[\d]$")
-RE_ROMAN_NUMBER=re.compile("[IVXLCDM]+$")
+RE_SINGLE_LETTER=re.compile(u"\D$")
+RE_NUMBER=re.compile(u"[\d.,]+$")
+RE_SIGNED_NUMBER=re.compile(u"[+-]?[\d.,]+$")
+RE_DECIMAL=re.compile(u"[\d]+$")
+RE_SINGLE_DIGIT=re.compile(u"[\d]$")
+RE_ROMAN_NUMBER=re.compile(u"[IVXLCDM]+$")
 
 
 # Constants for MathML parser
 PRIMED_OPERATORS=(u"\u2032",u"\u2033",u"\u2034")
-SIMPLE_DECORATORS=("~","^",u"\u00af")
-STRETCH_SYMBOLS=("[","]","(",")","{","}")
-LEVEL_CHANGE_TAGS=("msup","msub","msubsup")
-STACK_TAGS=("munder","mover","munderover")
-CONTAINER_TAGS=("mrow","mpadded","mstyle","mtr","mlabeledtr","mtd")
+SIMPLE_DECORATORS=(u"~",u"^",u"\u00af")
+STRETCH_SYMBOLS=(u"[",u"]",u"(",u")",u"{",u"}")
+LEVEL_CHANGE_TAGS=(u"msup",u"msub",u"msubsup")
+STACK_TAGS=(u"munder",u"mover",u"munderover")
+CONTAINER_TAGS=(u"mrow",u"mpadded",u"mstyle",u"mtr",u"mlabeledtr",u"mtd")
 
 
 class MathSpeakNode(list):
@@ -972,9 +977,9 @@ class MathSpeakNode(list):
 		self.isSeparator=False
 		self.isMatrix=False
 		self.verb=VERB_VERBOSE
-		self.tag=""
+		self.tag=u""
 		self.attrs={}
-		self.cdata=""
+		self.cdata=u""
 		self.row=0
 		self.col=0
 		self.simpleTable=True
@@ -984,22 +989,22 @@ class MathSpeakNode(list):
 		self.modOver=0
 		self.scriptUnder=0
 		self.scriptOver=0
-		self.stackLevel=""
-		self.normLevel=""
-		self.startLevel=""
-		self.endLevel=""
-		self.tableText=""
-		self.rowLabel=""
-		self.crossOutText=""
-		self.text=""
+		self.stackLevel=u""
+		self.normLevel=u""
+		self.startLevel=u""
+		self.endLevel=u""
+		self.tableText=u""
+		self.rowLabel=u""
+		self.crossOutText=u""
+		self.text=u""
 
 	def __unicode__(self):
 		texts=[]
 		for x in self:
-			texts.append("["+x.text+"]")
-		return "["+",".join(texts)+"]"
+			texts.append(u"["+x.text+u"]")
+		return u"["+u",".join(texts)+u"]"
 
-	def _newChildNode(self,tag,cdata=""):
+	def _newChildNode(self,tag,cdata=u""):
 		child=self.__class__()
 		child.tag=tag
 		child.cdata=cdata
@@ -1012,7 +1017,7 @@ class MathSpeakNode(list):
 		return child
 
 	def _newOperatorNode(self,cdata):
-		child=self._newChildNode("mo",cdata)
+		child=self._newChildNode(u"mo",cdata)
 		child._translate_mo()
 		return child
 
@@ -1029,20 +1034,20 @@ class MathSpeakNode(list):
 		if len(self)==1 and self.tag in CONTAINER_TAGS:
 			return self[0]._isLetter()
 		else:
-			return (self.tag=="mi" and
+			return (self.tag==u"mi" and
 					RE_SINGLE_LETTER.match(self.cdata)!=None)
 
 	def _isNumber(self):
 		if len(self)==1 and self.tag in CONTAINER_TAGS:
 			return self[0]._isNumber()
 		else:
-			return (self.tag=="mn" and
+			return (self.tag==u"mn" and
 					RE_NUMBER.match(self.cdata)!=None)
 
 	def _table(self):
 		if len(self)==1 and self.tag in CONTAINER_TAGS:
 			return self[0]._table()
-		elif self.tag=="mtable":
+		elif self.tag==u"mtable":
 			return self
 		else:
 			return None
@@ -1065,9 +1070,9 @@ class MathSpeakNode(list):
 		if len(self)==1 and self.tag in CONTAINER_TAGS:
 			return self[0]._isOperator()
 		elif isinstance(value,tuple):
-			return self.tag=="mo" and self.cdata in value
+			return self.tag==u"mo" and self.cdata in value
 		else:
-			return self.tag=="mo" and self.cdata==value
+			return self.tag==u"mo" and self.cdata==value
 
 	def _isPrimed(self):
 		return self._isOperator(PRIMED_OPERATORS)
@@ -1076,7 +1081,7 @@ class MathSpeakNode(list):
 		if len(self)==1 and self.tag in CONTAINER_TAGS:
 			return self[0]._isMathOperator()
 		else:
-			return (self.tag=="mo" and
+			return (self.tag==u"mo" and
 					RE_SINGLE_LETTER.match(self.cdata)!=None)
 
 	def _isModifiedLetter(self):
@@ -1091,8 +1096,8 @@ class MathSpeakNode(list):
 		if len(self)==1 and self.tag in CONTAINER_TAGS:
 			return self[0]._isDottedDigit()
 		else:
-			return (len(self)==2 and self.tag=="mover" and
-					self[0].tag=="mn" and
+			return (len(self)==2 and self.tag==u"mover" and
+					self[0].tag==u"mn" and
 					RE_SINGLE_DIGIT.match(self[0].cdata)!=None and
 					self[1].text==self._findName(OPERATOR_DICT,u"\u00b7"))
 
@@ -1100,16 +1105,16 @@ class MathSpeakNode(list):
 		if len(self)==1 and self.tag in CONTAINER_TAGS:
 			return self[0]._isBarredDecimal()
 		else:
-			return (len(self)==2 and self.tag=="mover" and
+			return (len(self)==2 and self.tag==u"mover" and
 					self[0]._isNumber() and self[1]._isOperator(u"\u00af"))
 
 	def _tableRow(self,row):
 		if len(self)==1 and self.tag in CONTAINER_TAGS:
 			return self[0]._tableRow(row)
-		elif self.tag=="mtable":
+		elif self.tag==u"mtable":
 			count=0
 			for x in self:
-				if not x.tag in("mtr","mlabeledtr"):  continue
+				if not x.tag in(u"mtr",u"mlabeledtr"):  continue
 				if count==row:
 					return x
 				count+=1
@@ -1118,107 +1123,107 @@ class MathSpeakNode(list):
 	def _rawNumber(self):
 		if len(self)==1 and self.tag in CONTAINER_TAGS:
 			return self[0]._rawNumber()
-		elif len(self)==2 and self.tag=="mover":
+		elif len(self)==2 and self.tag==u"mover":
 			return self[0]._rawNumber()
-		elif self.tag=="mn":
+		elif self.tag==u"mn":
 			return self.text
 		else:
-			return ""
+			return u""
 
 	def _rawOperator(self):
 		if len(self)==1 and self.tag in CONTAINER_TAGS:
 			return self[0]._rawOperator()
-		elif self.tag=="mo" and not self.isSeparator:
+		elif self.tag==u"mo" and not self.isSeparator:
 			return self.cdata
 		else:
-			return ""
+			return u""
 
 	def _ordinalAbbrev(self,idx):
-		if idx%10==1 and idx!=11:  return str(idx)+"st"
-		if idx%10==2 and idx!=12:  return str(idx)+"nd"
-		if idx%10==3 and idx!=13:  return str(idx)+"rd"
-		else:                      return str(idx)+"th"
+		if idx%10==1 and idx!=11:  return str(idx)+u"st"
+		if idx%10==2 and idx!=12:  return str(idx)+u"nd"
+		if idx%10==3 and idx!=13:  return str(idx)+u"rd"
+		else:                      return str(idx)+u"th"
 
 	def _levelLabel(self,oldLevel,newLevel=None):
 		if newLevel==None:  newLevel=oldLevel
-		if newLevel=="":
-			return " "+self._findName(LABEL_DICT,"baseline")+" "
+		if newLevel==u"":
+			return u" "+self._findName(LABEL_DICT,u"baseline")+u" "
 		else:
-			label=""
+			label=u""
 			if len(oldLevel)>0 and oldLevel[0]!=newLevel[0]:
 				# Report baseline first when script level crosses it
-				label=self._findName(LABEL_DICT,"baseline")+" "
-			for n in xrange(len(newLevel)):
-				if newLevel[n]=="-":
-					label+=self._findName(LABEL_DICT,"sub")
+				label=self._findName(LABEL_DICT,u"baseline")+u" "
+			for n in range(len(newLevel)):
+				if newLevel[n]==u"-":
+					label+=self._findName(LABEL_DICT,u"sub")
 				else:
-					label+=self._findName(LABEL_DICT,"super")
-			label+=self._findName(LABEL_DICT,"scriptclose")
-			return " "+label+" "
+					label+=self._findName(LABEL_DICT,u"super")
+			label+=self._findName(LABEL_DICT,u"scriptclose")
+			return u" "+label+u" "
 
 	def _tableLabels(self,openSym,closeSym):
 		# Determine opening, body, and closing labels for <mtable>
-		start=self._findName(LABEL_DICT,"start")
-		end=self._findName(LABEL_DICT,"end")
-		by=self._findName(LABEL_DICT,"by")
+		start=self._findName(LABEL_DICT,u"start")
+		end=self._findName(LABEL_DICT,u"end")
+		by=self._findName(LABEL_DICT,u"by")
 		isMatrix=False
-		opening=""
+		opening=u""
 		body=self.tableText
-		closing=""
+		closing=u""
 		used=0
-		if self.row==2 and self.col==1 and openSym=="(" and closeSym==")":
+		if self.row==2 and self.col==1 and openSym==u"(" and closeSym==u")":
 			# 2x1 <mtable> enclosed by parenthesis is binomial
-			bin=self._findName(LABEL_DICT,"binomial")
+			bin=self._findName(LABEL_DICT,u"binomial")
 			opening=start+bin
-			body=" ".join((
+			body=u" ".join((
 				self._tableRow(0).text,
-				self._findName(LABEL_DICT,"choose"),
+				self._findName(LABEL_DICT,u"choose"),
 				self._tableRow(1).text))
 			closing=end+bin
 			used=2
-		elif ((openSym=="(" and closeSym==")") or
-				(openSym=="[" and closeSym=="]")):
+		elif ((openSym==u"(" and closeSym==u")") or
+				(openSym==u"[" and closeSym==u"]")):
 			# <mtable> enclosed by brackets or parenthesis is matrix
 			isMatrix=True
-			mat=self._findName(LABEL_DICT,"matrix")
-			opening=" ".join((start,str(self.row),by,str(self.col),mat))
+			mat=self._findName(LABEL_DICT,u"matrix")
+			opening=u" ".join((start,str(self.row),by,str(self.col),mat))
 			closing=end+mat
 			used=2
-		elif openSym=="|" and closeSym=="|":
+		elif openSym==u"|" and closeSym==u"|":
 			# <mtable> enclosed by vertical bars is determinant
-			det=self._findName(LABEL_DICT,"determinant")
-			opening=" ".join((start,str(self.row),by,str(self.col),det))
+			det=self._findName(LABEL_DICT,u"determinant")
+			opening=u" ".join((start,str(self.row),by,str(self.col),det))
 			closing=end+det
 			used=2
 		else:
 			# All other <mtable> are layout elements
-			layout=self._findName(LABEL_DICT,"layout")
-			enlarged=self._findName(LABEL_DICT,"enlarged")
+			layout=self._findName(LABEL_DICT,u"layout")
+			enlarged=self._findName(LABEL_DICT,u"enlarged")
 			opening=start+layout
 			closing=end+layout
 			# Report enlarged opening or closing symbols
 			if openSym in STRETCH_SYMBOLS:
 				label=self._findName(OPERATOR_DICT,openSym)
-				opening=" ".join((opening,enlarged,label))
+				opening=u" ".join((opening,enlarged,label))
 				used+=1
 			if closeSym in STRETCH_SYMBOLS:
 				label=self._findName(OPERATOR_DICT,closeSym)
-				closing=" ".join((enlarged,label,closing))
+				closing=u" ".join((enlarged,label,closing))
 				used+=1
 		return (opening,body,closing,used,isMatrix)
 
 	def _identifyAbsoluteValues(self):
 		# Identify <mo> with vertical bars that represent absolute values
-		abs=self._findName(LABEL_DICT,"absolute")
-		start=self._findName(LABEL_DICT,"start")+abs
-		end=self._findName(LABEL_DICT,"end")+abs
+		abs=self._findName(LABEL_DICT,u"absolute")
+		start=self._findName(LABEL_DICT,u"start")+abs
+		end=self._findName(LABEL_DICT,u"end")+abs
 		l=len(self)
 		n=0
 		opened=False
 		while n<l:
-			if (self[n]._rawOperator()=="|"):
+			if (self[n]._rawOperator()==u"|"):
 				if ((n+2)<l and self[n+1]._table() and
-						self[n+2]._rawOperator()=="|"):
+						self[n+2]._rawOperator()==u"|"):
 					n+=3
 					continue
 				opened=not opened
@@ -1230,9 +1235,9 @@ class MathSpeakNode(list):
 
 	def _identifyTables(self):
 		# Identify <mtable> tags based on context
-		start=self._findName(LABEL_DICT,"start")
-		end=self._findName(LABEL_DICT,"end")
-		by=self._findName(LABEL_DICT,"by")
+		start=self._findName(LABEL_DICT,u"start")
+		end=self._findName(LABEL_DICT,u"end")
+		by=self._findName(LABEL_DICT,u"by")
 		l=len(self)
 		n=0
 		while n<l:
@@ -1243,7 +1248,7 @@ class MathSpeakNode(list):
 			o=self[n]._rawOperator()
 			if tbl and (n+2)<l:
 				c=self[n+2]._rawOperator()
-				if tbl and o!="" and c!="":
+				if tbl and o!=u"" and c!=u"":
 					# Handle <...> <mtable> <...>
 					(opening,body,closing,used,isMatrix)=tbl._tableLabels(o,c)
 					if used==2:
@@ -1257,27 +1262,27 @@ class MathSpeakNode(list):
 						continue
 			if tbl and (n+1)<l:
 				# Handle <...> <mtable>
-				(opening,body,closing,used,isMatrix)=tbl._tableLabels(o,"")
+				(opening,body,closing,used,isMatrix)=tbl._tableLabels(o,u"")
 				if used==1:
 					self[n].text=opening
-					self[n+1].text=" ".join((body,closing))
+					self[n+1].text=u" ".join((body,closing))
 					n+=2
 					continue
 			tbl=self[n]._table()
 			if tbl and (n+1)<l:
 				# Handle <mtable> <...>
 				c=self[n+1]._rawOperator()
-				if c!="":
-					(opening,body,closing,used,isMatrix)=tbl._tableLabels("",c)
+				if c!=u"":
+					(opening,body,closing,used,isMatrix)=tbl._tableLabels(u"",c)
 					if used==1:
-						self[n].text=" ".join((opening,body))
+						self[n].text=u" ".join((opening,body))
 						self[n+1].text=closing
 						n+=2
 						continue
-			if self[n].tag=="mtable":
+			if self[n].tag==u"mtable":
 				# Handle standalone <mtable> only if it is a direct child
-				(opening,body,closing,used,isMatrix)=tbl._tableLabels("","")
-				self[n].text=" ".join((opening,body,closing))
+				(opening,body,closing,used,isMatrix)=tbl._tableLabels(u"",u"")
+				self[n].text=u" ".join((opening,body,closing))
 			n+=1
 
 	def _identifyRepeatingDigits(self):
@@ -1286,40 +1291,40 @@ class MathSpeakNode(list):
 		while n<(len(self)-1):
 			if self[n]._isDottedDigit() and self[n+1]._isDottedDigit():
 				# Setup start of group indicator 
-				prefix=(self._findName(LABEL_DICT,"modifying")+
-						self._findName(LABEL_DICT,"each")+
-						self._findName(LABEL_DICT,"above"))
-				self[n].text=" ".join((prefix,self[n]._rawNumber()))
+				prefix=(self._findName(LABEL_DICT,u"modifying")+
+						self._findName(LABEL_DICT,u"each")+
+						self._findName(LABEL_DICT,u"above"))
+				self[n].text=u" ".join((prefix,self[n]._rawNumber()))
 				self[n+1].text=self[n+1]._rawNumber()
 				# Change all consecutive dotted digits
 				count=2
-				for k in xrange(n+2,len(self)):
+				for k in range(n+2,len(self)):
 					if not self[k]._isDottedDigit():  break
 					self[k].text=self[k]._rawNumber()
 					count+=1
 					n+=1
 				# Setup end of group indicator
-				self[n+1].text=" ".join((self[n+1]._rawNumber(),
-					self._findName(LABEL_DICT,"with"),
+				self[n+1].text=u" ".join((self[n+1]._rawNumber(),
+					self._findName(LABEL_DICT,u"with"),
 					self._findName(OPERATOR_DICT,u"\u00b7")))
 			elif self[n]._isNumber() and self[n+1]._isBarredDecimal():
 				# Force reading of decimal point
-				if self[n].text[-1]==".":
-					self[n].text=" ".join((self[n].text[0:-1],
-							self._findName(LABEL_DICT,"point")))
+				if self[n].text[-1]==u".":
+					self[n].text=u" ".join((self[n].text[0:-1],
+							self._findName(LABEL_DICT,u"point")))
 				# Individually read each digit
-				prefix=(self._findName(LABEL_DICT,"modifying")+
-						self._findName(LABEL_DICT,"above"))
-				digits=" ".join(list(self[n+1]._rawNumber()))
-				self[n+1].text=" ".join((prefix,digits,
-					self._findName(LABEL_DICT,"with"),
+				prefix=(self._findName(LABEL_DICT,u"modifying")+
+						self._findName(LABEL_DICT,u"above"))
+				digits=u" ".join(list(self[n+1]._rawNumber()))
+				self[n+1].text=u" ".join((prefix,digits,
+					self._findName(LABEL_DICT,u"with"),
 					self._findName(OPERATOR_DICT,u"\u00af")))
 				n+=1
 			n+=1
 
 	def _identifyCrossProducts(self):
 		# Identify multiplication signs between matrices as cross operators
-		for n in xrange(1,len(self)-1):
+		for n in range(1,len(self)-1):
 			if not self[n-1].isMatrix:  continue
 			if not self[n+1].isMatrix:  continue
 			x=self[n]
@@ -1328,7 +1333,7 @@ class MathSpeakNode(list):
 
 	def _mergeText(self,prefixLabel=True):
 		# Merge text from child nodes 
-		self.cdata=""
+		self.cdata=u""
 		if len(self)==0:  return
 		self._identifyAbsoluteValues()
 		self._identifyTables()
@@ -1338,7 +1343,7 @@ class MathSpeakNode(list):
 		if prefixLabel and self.startLevel!=self.normLevel:
 			self.text=self._levelLabel(self.normLevel,self.startLevel)
 			self.startLevel=self.normLevel
-		for n in xrange(len(self)):
+		for n in range(len(self)):
 			x=self[n]
 			# Determine text separator
 			sep=None
@@ -1352,13 +1357,13 @@ class MathSpeakNode(list):
 					sep=self._levelLabel(l,x.startLevel)
 				elif prev._isLetter() and x._isNumber():
 					# Report baseline if number could be mistaken as subscript
-					sep=self._levelLabel("")
-				elif prev._isNumber() and x.tag=="mfrac" and x.frac==0:
+					sep=self._levelLabel(u"")
+				elif prev._isNumber() and x.tag==u"mfrac" and x.frac==0:
 					# Append "and" if numeric fraction follows a number
-					sep=self._findName(LABEL_DICT,"and")
+					sep=self._findName(LABEL_DICT,u"and")
 			# Append child text now
-			if sep:  self.text+=" "+sep+" "
-			else:    self.text+=" "
+			if sep:  self.text+=u" "+sep+u" "
+			else:    self.text+=u" "
 			self.text+=x.text
 			# Keep track of ending script level in text
 			l=x.endLevel
@@ -1376,35 +1381,35 @@ class MathSpeakNode(list):
 		# Override this method to perform locale-specific translation
 		pass
 
-	def _mergeCrossOut(self,crossout,mod=""):
-		cancel=self._findName(LABEL_DICT,"cancel")
+	def _mergeCrossOut(self,crossout,mod=u""):
+		cancel=self._findName(LABEL_DICT,u"cancel")
 		if len(mod)>0:
-			self.text=" ".join((
+			self.text=u" ".join((
 				cancel,
 				crossout.crossOutText,
-				self._findName(LABEL_DICT,"cancelwith"),
+				self._findName(LABEL_DICT,u"cancelwith"),
 				mod,
-				self._findName(LABEL_DICT,"end")+cancel))
+				self._findName(LABEL_DICT,u"end")+cancel))
 		else:
-			self.text=" ".join((
+			self.text=u" ".join((
 				cancel,
 				crossout.crossOutText,
-				self._findName(LABEL_DICT,"end")+cancel))
+				self._findName(LABEL_DICT,u"end")+cancel))
 
 	def _defaultTranslation(self):
-		self.cdata=""
+		self.cdata=u""
 
 	def _translate_math(self):
 		self._mergeText()
 
 	def _translate_mtext(self):
 		# <mtext> reads out CDATA
-		self.text=re.sub(" +"," ",self.cdata.strip())
+		self.text=re.sub(u" +",u" ",self.cdata.strip())
 
 	def _translate_mphantom(self):
 		# <mphantom> requires processing but generates no text output
 		self._mergeText()
-		self.text=""
+		self.text=u""
 
 	def _translate_mrow(self):
 		self._mergeText(prefixLabel=False)
@@ -1412,13 +1417,13 @@ class MathSpeakNode(list):
 	def _translate_menclose(self):
 		self._mergeText()
 		# Detect crossed out expressions
-		notations=["longdiv"]
-		if "notation" in self.attrs:
-			notations=self.attrs["notation"].split()
-		if ("updiagonalstrike" in notations or
-			"downdiagonalstrike" in notations or
-			"verticalstrike" in notations or
-			"horizontalstrike" in notations):
+		notations=[u"longdiv"]
+		if u"notation" in self.attrs:
+			notations=self.attrs[u"notation"].split()
+		if (u"updiagonalstrike" in notations or
+			u"downdiagonalstrike" in notations or
+			u"verticalstrike" in notations or
+			u"horizontalstrike" in notations):
 			self.crossOutText=self.text
 			self._mergeCrossOut(self)
 
@@ -1434,144 +1439,144 @@ class MathSpeakNode(list):
 
 	def _translate_ms(self):
 		self._translate_mtext()
-		label=self._findName(LABEL_DICT,"string")
-		self.text=" ".join((
-			self._findName(LABEL_DICT,"start")+label,
+		label=self._findName(LABEL_DICT,u"string")
+		self.text=u" ".join((
+			self._findName(LABEL_DICT,u"start")+label,
 			self.text,
-			self._findName(LABEL_DICT,"end")+label))
+			self._findName(LABEL_DICT,u"end")+label))
 
 	def _translate_mglyph(self):
-		if "alt" in self.attrs:
-			self.text=self.attrs["alt"]
+		if u"alt" in self.attrs:
+			self.text=self.attrs[u"alt"]
 
 	def _translate_maligngroup(self):
-		self.cdata=""
+		self.cdata=u""
 
 	def _translate_malignmark(self):
-		self.cdata=""
+		self.cdata=u""
 
 	def _translate_merror(self):
 		self._mergeText()
-		label=self._findName(LABEL_DICT,"error")
-		self.text=" ".join((
-			self._findName(LABEL_DICT,"start")+label,
+		label=self._findName(LABEL_DICT,u"error")
+		self.text=u" ".join((
+			self._findName(LABEL_DICT,u"start")+label,
 			self.text,
-			self._findName(LABEL_DICT,"end")+label))
+			self._findName(LABEL_DICT,u"end")+label))
 
 	def _translate_mstyle(self):
 		self._mergeText()
-		if not "mathvariant" in self.attrs:  return
+		if not u"mathvariant" in self.attrs:  return
 		single=(len(self)==1 and
 			(self[0]._isLetter() or self[0]._isMathOperator()))
-		variant=self.attrs["mathvariant"]
-		prefix=""
-		suffix=""
+		variant=self.attrs[u"mathvariant"]
+		prefix=u""
+		suffix=u""
 		if variant in VARIANT_DICT:
 			prefix=self._findName(VARIANT_DICT,variant)
 			if not single:
-				suffix=self._findName(LABEL_DICT,"end")+prefix
-				prefix=self._findName(LABEL_DICT,"start")+prefix
-		self.text=" ".join((prefix,self.text,suffix))
+				suffix=self._findName(LABEL_DICT,u"end")+prefix
+				prefix=self._findName(LABEL_DICT,u"start")+prefix
+		self.text=u" ".join((prefix,self.text,suffix))
 
 	def _mergeSimpleTable(self):
-		self.text=""
+		self.text=u""
 		self.row=0
 		for x in self:
-			if not x.tag in("mtr","mlabeledtr"):  continue
+			if not x.tag in(u"mtr",u"mlabeledtr"):  continue
 			# Generate simplified text for row 
 			data=[]
 			for y in x:
-				if y.tag=="mtd":  data.append(y.text)
-			x.text=" ".join(data)
+				if y.tag==u"mtd":  data.append(y.text)
+			x.text=u" ".join(data)
 			# Extend table text now
 			self.row+=1
-			self.text=" ".join((self.text,self._ordinalAbbrev(self.row),
-					self._findName(LABEL_DICT,"row"),x.text))
+			self.text=u" ".join((self.text,self._ordinalAbbrev(self.row),
+					self._findName(LABEL_DICT,u"row"),x.text))
 
 	def _translate_mtable(self):
 		# <mtable> resets ending script level
-		self.cdata=""
+		self.cdata=u""
 		self.endLevel=self.startLevel
 		for x in self:
-			if not x.tag in ("mtr","mlabeledtr"):  continue
+			if not x.tag in (u"mtr",u"mlabeledtr"):  continue
 			if self.simpleTable:
 				self.simpleTable=x.simpleTable
 			if (self.col<x.col):  self.col=x.col
 			self.row+=1
-			self.text=" ".join((self.text,self._ordinalAbbrev(self.row),
-					self._findName(LABEL_DICT,"row"),x.text))
+			self.text=u" ".join((self.text,self._ordinalAbbrev(self.row),
+					self._findName(LABEL_DICT,u"row"),x.text))
 		if self.simpleTable:
 			self._mergeSimpleTable()
 		self.tableText=self.text
 
 	def _translate_mtr(self):
-		self.cdata=""
+		self.cdata=u""
 		self.endLevel=self.startLevel
-		if self.rowLabel!="":
-			label=self._findName(LABEL_DICT,"label")
-			self.text=" ".join((
-				self._findName(LABEL_DICT,"start")+label,
+		if self.rowLabel!=u"":
+			label=self._findName(LABEL_DICT,u"label")
+			self.text=u" ".join((
+				self._findName(LABEL_DICT,u"start")+label,
 				self.rowLabel,
-				self._findName(LABEL_DICT,"end")+label))
+				self._findName(LABEL_DICT,u"end")+label))
 		for x in self:
-			if x.tag!="mtd":  continue
+			if x.tag!=u"mtd":  continue
 			if len(self)>1 and self.simpleTable:
 				self.simpleTable=x._isLetter() or x._isNumber()
 			self.col+=1
-			self.text=" ".join((self.text,self._ordinalAbbrev(self.col),
-					self._findName(LABEL_DICT,"column"),x.text))
+			self.text=u" ".join((self.text,self._ordinalAbbrev(self.col),
+					self._findName(LABEL_DICT,u"column"),x.text))
 
 	def _translate_mlabeledtr(self):
 		# Use first <mtd> as row label and convert into <mtr>
-		for n in xrange(len(self)):
-			if self[n].tag!="mtd":  continue
+		for n in range(len(self)):
+			if self[n].tag!=u"mtd":  continue
 			self.rowLabel=self[n].text
 			self.pop(n)
 			break
-		self.tag="mtr"
+		self.tag=u"mtr"
 		self._translate_mtr()
 
 	def _translate_mtd(self):
 		self._mergeText()
-		if self.text=="":
-			self.text=self._findName(LABEL_DICT,"blank")
+		if self.text==u"":
+			self.text=self._findName(LABEL_DICT,u"blank")
 
 	def _translate_mspace(self):
-		self.cdata=""
+		self.cdata=u""
 
 	def _translate_mn(self):
-		value=self.cdata=re.sub(" +"," ",self.cdata.strip())
+		value=self.cdata=re.sub(u" +",u" ",self.cdata.strip())
 		if RE_SIGNED_NUMBER.match(value):
 			# Handle normal number
-			if   value[0]=="-":
-				self.text=" ".join(
-					(self._findName(LABEL_DICT,"negative"),value[1:]))
-			elif value[0]=="+":
-				self.text=" ".join(
-					(self._findName(LABEL_DICT,"positive"),value[1:]))
+			if   value[0]==u"-":
+				self.text=u" ".join(
+					(self._findName(LABEL_DICT,u"negative"),value[1:]))
+			elif value[0]==u"+":
+				self.text=u" ".join(
+					(self._findName(LABEL_DICT,u"positive"),value[1:]))
 			else:
 				self.text=value
 		elif RE_ROMAN_NUMBER.match(value):
 			# Handle Roman numeral
 			if len(value)>1:
-				prefix=self._findName(LABEL_DICT,"capword")
+				prefix=self._findName(LABEL_DICT,u"capword")
 			else:
-				prefix=self._findName(LABEL_DICT,"capital")
+				prefix=self._findName(LABEL_DICT,u"capital")
 			chars=list(value)
-			self.text=" ".join((prefix," ".join(chars)))
+			self.text=u" ".join((prefix,u" ".join(chars)))
 		else:
 			# Handle number that contains letters
 			chars=[self._findName(OPERATOR_DICT,x) for x in list(value)]
-			self.text=" ".join((
-				self._findName(LABEL_DICT,"number"),
-				" ".join(chars)))
+			self.text=u" ".join((
+				self._findName(LABEL_DICT,u"number"),
+				u" ".join(chars)))
 
 	def _translate_mi(self):
 		value=self.cdata=self.cdata.strip()
 		self.text=self._findName(IDENTIFIER_DICT,value)
 		if len(value)==1 and value[0].isupper():
-			self.text=" ".join(
-					(self._findName(LABEL_DICT,"capital"),self.text))
+			self.text=u" ".join(
+					(self._findName(LABEL_DICT,u"capital"),self.text))
 
 	def _translate_mo(self):
 		value=self.cdata=self.cdata.strip()
@@ -1579,17 +1584,17 @@ class MathSpeakNode(list):
 
 	def _translate_mfenced(self):
 		# Determine opening symbol, closing symbol and separators
-		openSym="("
-		if "open" in self.attrs:
-			openSym=self.attrs["open"]
-		closeSym=")"
-		if "close" in self.attrs:
-			closeSym=self.attrs["close"]
-		separators=","
-		if "separators" in self.attrs:
-			separators=re.sub(" +","",self.attrs["separators"])
+		openSym=u"("
+		if u"open" in self.attrs:
+			openSym=self.attrs[u"open"]
+		closeSym=u")"
+		if u"close" in self.attrs:
+			closeSym=self.attrs[u"close"]
+		separators=u","
+		if u"separators" in self.attrs:
+			separators=re.sub(u" +",u"",self.attrs[u"separators"])
 		# Convert <mfenced> into equivalent <mrow> representation
-		self.tag="mrow"
+		self.tag=u"mrow"
 		if len(separators)>0:
 			n=1
 			while n<len(self):
@@ -1606,67 +1611,67 @@ class MathSpeakNode(list):
 		if len(closeSym)>0:
 			self.append(self._newOperatorNode(closeSym))
 		# Detect sets
-		if len(self)>1 and openSym=="{" and closeSym=="}" and separators==",":
-			set=self._findName(LABEL_DICT,"set")
-			self[0].text=self._findName(LABEL_DICT,"start")+set
-			self[-1].text=self._findName(LABEL_DICT,"end")+set
+		if len(self)>1 and openSym==u"{" and closeSym==u"}" and separators==u",":
+			set=self._findName(LABEL_DICT,u"set")
+			self[0].text=self._findName(LABEL_DICT,u"start")+set
+			self[-1].text=self._findName(LABEL_DICT,u"end")+set
 		# Process as a <mrow> now
 		self._translate_mrow()
 
 	def _mergeSuperscript(self,script):
-		if script.text=="":
+		if script.text==u"":
 			self._translate_mrow()
 			return
 		sep=self._levelLabel(self[0].endLevel,script.startLevel)
-		if self[0].text=="":
-			sep=""
+		if self[0].text==u"":
+			sep=u""
 			self.startLevel=script.startLevel
 		elif self[0].startLevel==self[0].endLevel:
-			if script.text=="2" and script.startLevel==(self.startLevel+"+"):
-				self.text=" ".join((self[0].text,
-						self._findName(LABEL_DICT,"squared")))
+			if script.text==u"2" and script.startLevel==(self.startLevel+u"+"):
+				self.text=u" ".join((self[0].text,
+						self._findName(LABEL_DICT,u"squared")))
 				return
-			if script.text=="3" and script.startLevel==(self.startLevel+"+"):
-				self.text=" ".join((self[0].text,
-						self._findName(LABEL_DICT,"cubed")))
+			if script.text==u"3" and script.startLevel==(self.startLevel+u"+"):
+				self.text=u" ".join((self[0].text,
+						self._findName(LABEL_DICT,u"cubed")))
 				return
 		self.endLevel=script.endLevel
 		self.text=self[0].text+sep+script.text
 
 	def _mergeSubscript(self,script):
-		if script.text=="":
+		if script.text==u"":
 			self._translate_mrow()
 			return
 		sep=self._levelLabel(self[0].endLevel,script.startLevel)
 		if self[0]._isLetter() and script._isNumber():
 			# Read numeric subscript without level label
-			sep=" "
+			sep=u" "
 			self.endLevel=self.startLevel
 		else:
 			self.endLevel=script.endLevel
-			if self[0].text=="":
-				sep=""
+			if self[0].text==u"":
+				sep=u""
 				self.startLevel=script.startLevel
 		self.text=self[0].text+sep+script.text
 
 	def _translate_msup(self):
-		self.cdata=""
+		self.cdata=u""
 		if len(self)!=2:  return
 		self._mergeSuperscript(self[1])
 
 	def _translate_msub(self):
-		self.cdata=""
+		self.cdata=u""
 		if len(self)!=2:  return
 		self._mergeSubscript(self[1])
 
 	def _translate_msubsup(self):
-		self.cdata=""
+		self.cdata=u""
 		if len(self)!=3:  return
-		if self[1].text=="":
+		if self[1].text==u"":
 			# Treat as <msup> if subscript is empty
 			self._mergeSuperscript(self[2])
 			return
-		elif self[2].text=="":
+		elif self[2].text==u"":
 			# Treat as <msub> if superscript is empty
 			self._mergeSubscript(self[1])
 			return
@@ -1675,45 +1680,45 @@ class MathSpeakNode(list):
 			sep=self._levelLabel(self[1].startLevel)
 			if self[0]._isLetter() and self[1]._isNumber():
 				# Read numeric subscript without level label
-				sep=" "
+				sep=u" "
 				self.endLevel=self.startLevel
 			else:
 				self.endLevel=self[1].endLevel
-				if self[0].text=="":
+				if self[0].text==u"":
 					self.startLevel=self[1].startLevel
-			self.text=self[0].text+" "+self[2].text+sep+self[1].text
+			self.text=self[0].text+u" "+self[2].text+sep+self[1].text
 		else:
 			# Otherwise read subscript before superscript
 			self.endLevel=self[2].endLevel
 			sep=self._levelLabel(self[0].endLevel,self[1].startLevel)
 			if self[0]._isLetter() and self[1]._isNumber():
 				# Read numeric subscript without level label
-				sep=" "
-				if self[2].text=="2" and self[2].startLevel==(self.startLevel+"+"):
-					self.text=" ".join((self[0].text,self[1].text,
-							self._findName(LABEL_DICT,"squared")))
+				sep=u" "
+				if self[2].text==u"2" and self[2].startLevel==(self.startLevel+u"+"):
+					self.text=u" ".join((self[0].text,self[1].text,
+							self._findName(LABEL_DICT,u"squared")))
 					return
-				if self[2].text=="3" and self[2].startLevel==(self.startLevel+"+"):
-					self.text=" ".join((self[0].text,self[1].text,
-							self._findName(LABEL_DICT,"cubed")))
+				if self[2].text==u"3" and self[2].startLevel==(self.startLevel+u"+"):
+					self.text=u" ".join((self[0].text,self[1].text,
+							self._findName(LABEL_DICT,u"cubed")))
 					return
-			elif self[0].text=="":
-				sep=" "
+			elif self[0].text==u"":
+				sep=u" "
 				self.startLevel=self[1].startLevel
 			self.text=self[0].text+sep+self[1].text
 			self.text+=self._levelLabel(self[2].startLevel)
 			self.text+=self[2].text
 
 	def _translate_mmultiscripts(self):
-		self.cdata=""
+		self.cdata=u""
 		if len(self)==0:  return
 		# Convert <mmultiscripts> into equivalent <mrow> representation
-		self.tag="mrow"
+		self.tag=u"mrow"
 		children=[self.pop(0)]
 		insertPos=-1
 		while len(self)>0:
 			x=self.pop(0)
-			if x.tag=="mprescripts":
+			if x.tag==u"mprescripts":
 				insertPos=0
 				continue
 			if len(self)==0:
@@ -1721,17 +1726,17 @@ class MathSpeakNode(list):
 				break
 			y=self.pop(0)
 			# Fix <none> nodes
-			if x.tag=="none" and y.tag=="none":
+			if x.tag==u"none" and y.tag==u"none":
 				continue
-			if x.tag=="none":
-				x.tag="mi"
-				x.text=""
-			if y.tag=="none":
-				y.tag="mi"
-				y.text=""
+			if x.tag==u"none":
+				x.tag=u"mi"
+				x.text=u""
+			if y.tag==u"none":
+				y.tag=u"mi"
+				y.text=u""
 			# Construct <msubsup> node
-			child=self._newChildNode("msubsup")
-			child.append(self._newChildNode("mi"))
+			child=self._newChildNode(u"msubsup")
+			child.append(self._newChildNode(u"mi"))
 			child.append(x)
 			child.append(y)
 			child._translate_msubsup()
@@ -1748,66 +1753,66 @@ class MathSpeakNode(list):
 
 	def _radicalLabels(self,level):
 		# Determine index, opening and closing labels
-		nest=self._findName(LABEL_DICT,"rootnest")
-		index=self._findName(LABEL_DICT,"rootindex")
-		opening=self._findName(LABEL_DICT,"rootstart")
-		closing=self._findName(LABEL_DICT,"rootend")
-		if   level==1:  prefix=""
+		nest=self._findName(LABEL_DICT,u"rootnest")
+		index=self._findName(LABEL_DICT,u"rootindex")
+		opening=self._findName(LABEL_DICT,u"rootstart")
+		closing=self._findName(LABEL_DICT,u"rootend")
+		if   level==1:  prefix=u""
 		elif level==2:  prefix=nest
-		elif level==3:  prefix=nest+self._findName(LABEL_DICT,"twice")
+		elif level==3:  prefix=nest+self._findName(LABEL_DICT,u"twice")
 		else:           prefix=nest+str(level-1)
 		return (prefix+index,prefix+opening,prefix+closing)
 
 	def _translate_mroot(self):
-		self.cdata=""
+		self.cdata=u""
 		if len(self)!=2:  return
 		self.rad+=1
 		self.endLevel=self.startLevel
 		(index,opening,closing)=self._radicalLabels(self.rad)
-		self.text=" ".join((index,self[1].text,opening,self[0].text,closing))
+		self.text=u" ".join((index,self[1].text,opening,self[0].text,closing))
 
 	def _translate_msqrt(self):
-		self.cdata=""
+		self.cdata=u""
 		if len(self)!=1:  return
 		self.rad+=1
 		(index,opening,closing)=self._radicalLabels(self.rad)
-		self.text=" ".join((opening,self[0].text,closing))
+		self.text=u" ".join((opening,self[0].text,closing))
 
 	def _translate_mfrac(self):
-		self.cdata=""
+		self.cdata=u""
 		if len(self)!=2:  return
 		# Handle numeric fractions
 		self._mergeNumericFraction()
-		if self.text!="":  return
+		if self.text!=u"":  return
 		# TODO: Identify continued fraction 
 		# Determine opening, middle and closing text
-		label=self._findName(LABEL_DICT,"frac")
-		start=self._findName(LABEL_DICT,"start")
-		end=self._findName(LABEL_DICT,"end")
-		over=self._findName(LABEL_DICT,"fracover")
-		nest=self._findName(LABEL_DICT,"fracnest")
+		label=self._findName(LABEL_DICT,u"frac")
+		start=self._findName(LABEL_DICT,u"start")
+		end=self._findName(LABEL_DICT,u"end")
+		over=self._findName(LABEL_DICT,u"fracover")
+		nest=self._findName(LABEL_DICT,u"fracnest")
 		self.frac+=1
 		if self.verb==VERB_SUPERBRIEF:
-			if   self.frac==1:  prefix=""
+			if   self.frac==1:  prefix=u""
 			elif self.frac==2:  prefix=nest
-			elif self.frac==3:  prefix=nest+self._findName(LABEL_DICT,"twice")
+			elif self.frac==3:  prefix=nest+self._findName(LABEL_DICT,u"twice")
 			else:               prefix=nest+str(self.frac-1)
 			opening=prefix+label
 			middle=prefix+over
 			closing=prefix+end+label
 		else:
 			opening=label
-			middle=""
+			middle=u""
 			closing=label
-			for n in xrange(self.frac):
+			for n in range(self.frac):
 				opening=start+opening
 				middle=over+middle
 				closing=end+closing
 		# Combine into text
-		self.text=" ".join((opening,self[0].text,middle,self[1].text,closing))
+		self.text=u" ".join((opening,self[0].text,middle,self[1].text,closing))
 
 	def _stackText(self,location,modifier):
-		if modifier.text=="":  return
+		if modifier.text==u"":  return
 		# Check for crossed out item
 		if len(self.stackLevel)==1:
 			crossout=self[0]._crossOut()
@@ -1816,16 +1821,16 @@ class MathSpeakNode(list):
 				return
 		# Adjust modifier text
 		dot=self._findName(OPERATOR_DICT,u"\u00b7")
-		twoDots=self._findName(LABEL_DICT,"..")
-		if modifier.text==self._findName(OPERATOR_DICT,"."):
+		twoDots=self._findName(LABEL_DICT,u"..")
+		if modifier.text==self._findName(OPERATOR_DICT,u"."):
 			modifier.text=dot
-		elif modifier.text==dot+" "+dot:
+		elif modifier.text==dot+u" "+dot:
 			modifier.text=twoDots
 		mod=modifier.text
 		# Perform special proessing when symbol is single letter variable
 		if (self[0]._isModifiedLetter() and
 				modifier._isOperator(SIMPLE_DECORATORS)):
-			self.text+=(" "+self._findName(LABEL_DICT,location)+"-"+
+			self.text+=(u" "+self._findName(LABEL_DICT,location)+u"-"+
 					self._findName(OPERATOR_DICT,modifier._rawOperator()))
 			return
 		# Check for need to open stack
@@ -1833,79 +1838,79 @@ class MathSpeakNode(list):
 		modCount=self.modUnder+self.modOver
 		if (self.scriptUnder+self.scriptOver)>0:
 			pass
-		elif location=="over" and self.modUnder>0 and modCount>1:
+		elif location==u"over" and self.modUnder>0 and modCount>1:
 			pass
-		elif location=="under" and self.modOver>0 and modCount>1:
+		elif location==u"under" and self.modOver>0 and modCount>1:
 			pass
 		elif mod in (dot,twoDots) or modifier._isMathOperator():
 			open=False
 		# Perform translation now
 		if open:
-			label=self._findName(LABEL_DICT,"script")
-			if location=="over":
+			label=self._findName(LABEL_DICT,u"script")
+			if location==u"over":
 				self.scriptOver+=1
-				prefix=self._findName(LABEL_DICT,"over")
-				for n in xrange(self.scriptOver):  label=prefix+label
+				prefix=self._findName(LABEL_DICT,u"over")
+				for n in range(self.scriptOver):  label=prefix+label
 			else:
 				self.scriptUnder+=1
-				prefix=self._findName(LABEL_DICT,"under")
-				for n in xrange(self.scriptUnder):  label=prefix+label
-			self.text=" ".join((self.text,label,mod))
+				prefix=self._findName(LABEL_DICT,u"under")
+				for n in range(self.scriptUnder):  label=prefix+label
+			self.text=u" ".join((self.text,label,mod))
 		else:
-			label=self._findName(LABEL_DICT,"modifying")
-			if location=="over":
+			label=self._findName(LABEL_DICT,u"modifying")
+			if location==u"over":
 				self.modOver+=1
-				suffix=self._findName(LABEL_DICT,"above")
-				for n in xrange(self.modOver):  label=label+suffix
+				suffix=self._findName(LABEL_DICT,u"above")
+				for n in range(self.modOver):  label=label+suffix
 			else:
 				self.modUnder+=1
-				suffix=self._findName(LABEL_DICT,"below")
-				for n in xrange(self.modUnder):  label=label+suffix
-			self.text=" ".join((label,self.text,
-				self._findName(LABEL_DICT,"with"),mod))
+				suffix=self._findName(LABEL_DICT,u"below")
+				for n in range(self.modUnder):  label=label+suffix
+			self.text=u" ".join((label,self.text,
+				self._findName(LABEL_DICT,u"with"),mod))
 
 	def _endScripts(self):
 		if len(self.stackLevel)>1:  return
 		if (self.scriptOver+self.scriptUnder)==0:  return
-		self.text+=" "+self._findName(LABEL_DICT,"scriptend")
+		self.text+=u" "+self._findName(LABEL_DICT,u"scriptend")
 
 	def _translate_mover(self):
-		self.cdata=""
+		self.cdata=u""
 		if len(self)!=2:  return
 		self.text=self[0].text
-		self._stackText("over",self[1])
+		self._stackText(u"over",self[1])
 		self._endScripts()
 
 	def _translate_munder(self):
-		self.cdata=""
+		self.cdata=u""
 		if len(self)!=2:  return
 		self.text=self[0].text
-		self._stackText("under",self[1])
+		self._stackText(u"under",self[1])
 		self._endScripts()
 
 	def _translate_munderover(self):
-		self.cdata=""
+		self.cdata=u""
 		if len(self)!=3:  return
 		self.text=self[0].text
-		self._stackText("under",self[1])
-		self._stackText("over",self[2])
+		self._stackText(u"under",self[1])
+		self._stackText(u"over",self[2])
 		self._endScripts()
 
 
 class MathSpeak(object):
 
-	def translate(self,math,verbosity="verbose"):
+	def translate(self,math,verbosity=u"verbose"):
 		# Determine verbosity
 		verb=VERB_VERBOSE
-		if   verbosity=="superbrief":  verb=VERB_SUPERBRIEF
-		elif verbosity=="brief":       verb=VERB_BRIEF
+		if   verbosity==u"superbrief":  verb=VERB_SUPERBRIEF
+		elif verbosity==u"brief":       verb=VERB_BRIEF
 		# Perform actual translation
 		node=self._createNode()
 		node.verb=verb
 		self._stack=[node]
 		self._text=[]
 		try:
-			parser=expat.ParserCreate("utf-8")
+			parser=expat.ParserCreate(u"utf-8")
 			parser.StartElementHandler=self._startElementHandler
 			parser.EndElementHandler=self._endElementHandler
 			parser.CharacterDataHandler=self._characterDataHandler
@@ -1913,7 +1918,7 @@ class MathSpeak(object):
 		except expat.ExpatError:
 			return u""
 		# Return collected text
-		return "\n".join(self._text)
+		return u"\n".join(self._text)
 
 	def _createNode(self):
 		return MathSpeakNode()
@@ -1924,7 +1929,7 @@ class MathSpeak(object):
 		node.tag=tag.lower()
 		node.attrs=attrs
 		node.verb=parent.verb
-		if node.tag=="math":
+		if node.tag==u"math":
 			node.ignore=False
 		else:
 			node.ignore=parent.ignore
@@ -1932,25 +1937,25 @@ class MathSpeak(object):
 		if not node.ignore:
 			# Determine script level of new node
 			node.normLevel=parent.normLevel
-			adj=""
-			if   parent.tag=="msup" and len(parent)==1:  adj="+"
-			elif parent.tag=="msub" and len(parent)==1:  adj="-"
-			elif parent.tag=="msubsup":
-				if   len(parent)==1:  adj="-"
-				elif len(parent)==2:  adj="+"
-			elif parent.tag=="mmultiscripts" and len(parent)>0:
+			adj=u""
+			if   parent.tag==u"msup" and len(parent)==1:  adj=u"+"
+			elif parent.tag==u"msub" and len(parent)==1:  adj=u"-"
+			elif parent.tag==u"msubsup":
+				if   len(parent)==1:  adj=u"-"
+				elif len(parent)==2:  adj=u"+"
+			elif parent.tag==u"mmultiscripts" and len(parent)>0:
 				isSubscript=True
-				for n in xrange(1,len(parent)):
-					if parent[n].tag!="mprescripts":
+				for n in range(1,len(parent)):
+					if parent[n].tag!=u"mprescripts":
 						isSubscript=not isSubscript
-				if isSubscript:  adj="-"
-				else:            adj="+"
+				if isSubscript:  adj=u"-"
+				else:            adj=u"+"
 			node.normLevel+=adj
 			node.startLevel=node.endLevel=node.normLevel
 			# Determine stack level of new node
 			node.stackLevel=parent.stackLevel
 			if node.tag in STACK_TAGS:
-				node.stackLevel+="."
+				node.stackLevel+=u"."
 		# Append node to parent
 		parent.append(node)
 		# Push new node on stack
@@ -1966,7 +1971,7 @@ class MathSpeak(object):
 			return
 		# Look for specialized translation method
 		try:
-			func=getattr(node,"_translate_"+node.tag)
+			func=getattr(node,u"_translate_"+node.tag)
 		except AttributeError:
 			func=node._defaultTranslation
 		# Generate translated text now
@@ -1979,8 +1984,8 @@ class MathSpeak(object):
 		parent.modUnder=max(parent.modUnder,node.modUnder)
 		parent.modOver=max(parent.modOver,node.modOver)
 		# Collect text from <math> nodes
-		if node.tag=="math":
-			self._text.append(re.sub(" +"," ",node.text))
+		if node.tag==u"math":
+			self._text.append(re.sub(u" +",u" ",node.text))
 			del parent[-1]
 
 	def _characterDataHandler(self,data):

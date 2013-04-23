@@ -2,60 +2,61 @@
 #
 #Test program for MathSpeak text-to-speech translation
 #See the file COPYING for more details.
-#Copyright 2012 World Light Information Limited and Hong Kong Blind Union.
+#Copyright 2012-2013 World Light Information Limited and Hong Kong Blind Union.
 
 
 from optparse import OptionParser
-#from mathspeak.en import MathSpeak
+import sys
 
 
 def main():
 	# Parse command line
-	parser=OptionParser(usage="usage: %prog [options] file")
+	parser=OptionParser(usage=u"usage: %prog [options] file")
 	parser.add_option(
-		"-v", "--verbose",
-		action="store_const", dest="verbosity", const="verbose",
-		help="Set verbosity to 'verbose'")
+		"-v", u"--verbose",
+		action=u"store_const", dest=u"verbosity", const=u"verbose",
+		help=u"Set verbosity to 'verbose'")
 	parser.add_option(
-		"-b", "--brief",
-		action="store_const", dest="verbosity", const="brief",
-		help="Set verbosity to 'brief'")
+		"-b", u"--brief",
+		action=u"store_const", dest=u"verbosity", const=u"brief",
+		help=u"Set verbosity to 'brief'")
 	parser.add_option(
-		"-s", "--superbrief",
-		action="store_const", dest="verbosity", const="superbrief",
-		help="Set verbosity to 'superbrief'")
+		"-s", u"--superbrief",
+		action=u"store_const", dest=u"verbosity", const=u"superbrief",
+		help=u"Set verbosity to 'superbrief'")
 	parser.add_option(
-		"-l", "--locale", dest="locale", default="en",
-		help="Specify target locale")
+		"-l", u"--locale", dest=u"locale", default=u"en",
+		help=u"Specify target locale")
 	(options,files)=parser.parse_args()
 
 	# Validate command line options
 	if len(files) < 1:
-		parser.error("no input file")
+		parser.error(u"no input file")
 	if len(files) > 1:
-		parser.error("too many input files")
+		parser.error(u"too many input files")
 
 	# Load target locale module
 	try:
-		modules=__import__("mathspeak."+options.locale,
-				globals(),locals(),["mathspeak"])
+		modules=__import__(u"mathspeak."+options.locale,
+				globals(),locals(),[u"mathspeak"])
 	except:
-		parser.error("unknown locale")
+		parser.error(u"unknown locale")
 	MathSpeak=modules.MathSpeak
 
 	# Perform translation now
 	try:
-		math=open(files[0],"rb").read()
+		math=open(files[0],u"rb").read()
 	except:
-		parser.error("cannot open input file")
+		parser.error(u"cannot open input file")
 	text=MathSpeak().translate(math,options.verbosity)
-	if text=="":
-		math="<mathspeak>"+math+"</mathspeak>"
+	if text==u"":
+		math=u"<mathspeak>"+math+u"</mathspeak>"
 		text=MathSpeak().translate(math,options.verbosity)
-	print text.encode("utf-8")
+	if sys.version_info[0]<3:  text=text.encode(u"utf-8")
+	print(text)
 
 
-if __name__=="__main__":
+if __name__==u"__main__":
 	main()
 
 

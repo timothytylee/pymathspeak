@@ -4,10 +4,10 @@
 #
 #This file is covered by the GNU General Public License.
 #See the file COPYING for more details.
-#Copyright 2012 World Light Information Limited and Hong Kong Blind Union.
+#Copyright 2012-2013 World Light Information Limited and Hong Kong Blind Union.
 
 
-import _core
+from mathspeak import _core
 
 
 class MathSpeakNode(_core.MathSpeakNode):
@@ -57,26 +57,26 @@ class MathSpeakNode(_core.MathSpeakNode):
 		n=int(self[0].text)
 		d=int(self[1].text)
 		num=self._naturalNum(n)
-		denom=""
-		if   d==2:  denom="half"
-		elif d==4:  denom="quarter"
+		denom=u""
+		if   d==2:  denom=u"half"
+		elif d==4:  denom=u"quarter"
 		elif d<20:  denom=self._ordinalNum(d)
 		else:
 			denom={
 				2:u"twent",3:u"thirt",4:u"fort",5:u"fift",
 				6:u"sixt",7:u"sevent",8:u"eight",9:u"ninet"}[d//10]
-			if (d%10)==0:  denom+="ieth"
-			else:          denom+="y-"+self._ordinalNum(d%10)
+			if (d%10)==0:  denom+=u"ieth"
+			else:          denom+=u"y-"+self._ordinalNum(d%10)
 		if n>1:
 			# Use plural form of denominator when numerator > 1
-			if denom[-1]=="f":  denom=denom[0:-1]+"ves"
-			else:               denom+="s"
-		self.text=num+"-"+denom
+			if denom[-1]==u"f":  denom=denom[0:-1]+u"ves"
+			else:                denom+=u"s"
+		self.text=num+u"-"+denom
 
 
 class MathSpeak(_core.MathSpeak):
 
-	locale="en"
+	locale=u"en"
 
 	def __init__(self):
 		_core.MathSpeak.__init__(self)

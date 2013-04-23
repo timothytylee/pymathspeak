@@ -4,15 +4,15 @@
 #
 #This file is covered by the GNU General Public License.
 #See the file COPYING for more details.
-#Copyright 2012 World Light Information Limited and Hong Kong Blind Union.
+#Copyright 2012-2013 World Light Information Limited and Hong Kong Blind Union.
 
 
-import zh_TW
+from mathspeak import zh_TW
 
 
 class MathSpeak(zh_TW.MathSpeak):
 
-	locale="zh_HK"
+	locale=u"zh_HK"
 
 	def __init__(self):
 		zh_TW.MathSpeak.__init__(self)
