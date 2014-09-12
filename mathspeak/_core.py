@@ -1773,10 +1773,11 @@ class MathSpeakNode(list):
 
 	def _translate_msqrt(self):
 		self.cdata=u""
-		if len(self)!=1:  return
+		if len(self)==0:  return
+		self._mergeText()
 		self.rad+=1
 		(index,opening,closing)=self._radicalLabels(self.rad)
-		self.text=u" ".join((opening,self[0].text,closing))
+		self.text=u" ".join((opening,self.text,closing))
 
 	def _translate_mfrac(self):
 		self.cdata=u""
