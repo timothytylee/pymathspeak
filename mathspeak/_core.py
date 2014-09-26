@@ -212,6 +212,9 @@ IDENTIFIER_DICT={
 	u"arccot":{None:u"arc-cotangent"},
 	u"arcsec":{None:u"arc-secant"},
 	u"arccsc":{None:u"arc-cosecant"},
+	u"sinh":{None:u"hyperbolic-sine"},
+	u"cosh":{None:u"hyperbolic-cosine"},
+	u"tanh":{None:u"hyperbolic-tangent"},
 	}
 
 
@@ -291,6 +294,12 @@ OPERATOR_DICT={
 	u"\u2193":{
 		VERB_SUPERBRIEF:u"D arrow",
 		None:           u"down-arrow"},
+	u"\u2194":{
+		VERB_SUPERBRIEF:u"L R arrow",
+		None:           u"left-right-arrow"},
+	u"\u2195":{
+		VERB_SUPERBRIEF:u"U D arrow",
+		None:           u"up-down-arrow"},
 	u"\u2200":{None:u"for-all"},
 	u"\u2201":{None:u"compliment"},
 	u"\u2202":{
@@ -299,6 +308,7 @@ OPERATOR_DICT={
 		None:           u"partial-differential"},
 	u"\u2203":{None:u"there-exists"},
 	u"\u2204":{None:u"there-does-not-exists"},
+	u"\u2205":{None:u"empty-set"},
 	u"\u2206":{None:u"increment"},
 	u"\u2207":{None:u"nabla"},
 	u"\u2208":{None:u"element-of"},
@@ -405,6 +415,7 @@ OPERATOR_DICT={
 	u"\u2258":{None:u"corresponds-to"},
 	u"\u2259":{None:u"estimates"},
 	u"\u225a":{None:u"equiangular-to"},
+	u"\u225b":{None:u"star-equals"},
 	u"\u225c":{None:u"delta-equals"},
 	u"\u225d":{
 		VERB_SUPERBRIEF:u"equals-by-def",
@@ -462,6 +473,7 @@ OPERATOR_DICT={
 	u"\u2292":{None:u"square-original-of-or-equals"},
 	u"\u2293":{None:u"square-cap"},
 	u"\u2294":{None:u"square-cup"},
+	u"\u2295":{None:u"circled-plus"},
 	u"\u229a":{None:u"circled-ring"},
 	u"\u229b":{None:u"circled-asterisk"},
 	u"\u229c":{None:u"circled-equals"},
@@ -619,8 +631,8 @@ OPERATOR_DICT={
 	u"\u25c1":{None:u"white-point-left-triangle"},
 	u"\u25c2":{None:u"small-black-point-left-triangle"},
 	u"\u25c3":{None:u"small-white-point-left-triangle"},
-	u"\u25c4":{None:u"black-point-left-triangle"},
-	u"\u25c5":{None:u"white-point-left-triangle"},
+	u"\u25c4":{None:u"black-point-left-pointer"},
+	u"\u25c5":{None:u"white-point-left-pointer"},
 	u"\u25c6":{None:u"black-diamond"},
 	u"\u25c7":{None:u"white-diamond"},
 	u"\u25c8":{None:u"white-diamond-containing-black-diamond"},
