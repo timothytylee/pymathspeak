@@ -3,8 +3,8 @@
 #Implementation of MathSpeak Core Specification Grammer Rules from:
 #    http://www.gh-mathspeak.com/examples/grammar-rules/
 #This file is covered by the GNU General Public License.
-#See the file COPYING for more details.
-#Copyright 2012-2013 World Light Information Limited and Hong Kong Blind Union.
+#See licence.txt for more details.
+#Copyright 2012-2014 World Light Information Limited and Hong Kong Blind Union.
 
 
 from xml.parsers import expat

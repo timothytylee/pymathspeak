@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 #
 #Test program for MathSpeak text-to-speech translation
-#See the file COPYING for more details.
-#Copyright 2012-2013 World Light Information Limited and Hong Kong Blind Union.
+#See licence.txt for more details.
+#Copyright 2012-2014 World Light Information Limited and Hong Kong Blind Union.
 
 
 from optparse import OptionParser
