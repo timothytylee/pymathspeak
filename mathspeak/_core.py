@@ -1080,7 +1080,7 @@ class MathSpeakNode(list):
 
 	def _isOperator(self,value):
 		if len(self)==1 and self.tag in CONTAINER_TAGS:
-			return self[0]._isOperator()
+			return self[0]._isOperator(value)
 		elif isinstance(value,tuple):
 			return self.tag==u"mo" and self.cdata in value
 		else:
