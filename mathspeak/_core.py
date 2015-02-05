@@ -1592,7 +1592,11 @@ class MathSpeakNode(list):
 
 	def _translate_mo(self):
 		value=self.cdata=self.cdata.strip()
-		self.text=self._findName(OPERATOR_DICT,value)
+		if value in OPERATOR_DICT:
+			self.text=self._findName(OPERATOR_DICT,value)
+		else:
+			# Handle cases where function names are enclosed in <mo>
+			self.text=self._findName(IDENTIFIER_DICT,value)
 
 	def _translate_mfenced(self):
 		# Determine opening symbol, closing symbol and separators
