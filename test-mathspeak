@@ -38,7 +38,7 @@ def main():
 	# Load target locale module
 	try:
 		modules=__import__(u"mathspeak."+options.locale,
-				globals(),locals(),[u"mathspeak"])
+				globals(),locals(),[u"."])
 	except:
 		parser.error(u"unknown locale")
 	MathSpeak=modules.MathSpeak

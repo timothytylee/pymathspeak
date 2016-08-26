@@ -4,10 +4,10 @@
 #
 #This file is covered by the GNU General Public License.
 #See licence.txt for more details.
-#Copyright 2012-2014 World Light Information Limited and Hong Kong Blind Union.
+#Copyright 2012-2016 World Light Information Limited and Hong Kong Blind Union.
 
 
-from mathspeak import _core
+from . import _core
 
 
 _core.VARIANT_DICT.update({
