@@ -8,6 +8,7 @@
 
 
 from . import _core
+from _core import VERB_VERBOSE, VERB_BRIEF, VERB_SUPERBRIEF
 
 
 class MathSpeakNode(_core.MathSpeakNode):

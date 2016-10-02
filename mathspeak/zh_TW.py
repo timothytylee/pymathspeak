@@ -8,6 +8,7 @@
 
 
 from . import _core
+from _core import VERB_VERBOSE, VERB_BRIEF, VERB_SUPERBRIEF
 
 
 _core.VARIANT_DICT.update({
@@ -63,7 +64,9 @@ _core.LABEL_DICT.update({
 	u"frac":       {None:u"分數"},
 	u"rootnest":   {None:u"嵌套"},
 	u"rootindex":  {None:u"方根"},
-	u"rootstart":  {None:u"開始方根"},
+	u"rootstart":  {
+		VERB_SUPERBRIEF:u"方根",
+		None:           u"開始方根"},
 	u"rootend":    {None:u"結束方根"},
 	u"squared":    {None:u"平方"},
 	u"cubed":      {None:u"立方"},
@@ -303,10 +306,18 @@ _core.OPERATOR_DICT.update({
 	u"\u229b":{None:u"帶圓圈星號"},
 	u"\u229c":{None:u"帶圓圈等號"},
 	u"\u229d":{None:u"帶圓圈減號"},
-	u"\u22a2":{None:u"右丁字"},
-	u"\u22a3":{None:u"左丁字"},
-	u"\u22a4":{None:u"下丁字"},
-	u"\u22a5":{None:u"上丁字"},
+	u"\u22a2":{
+		VERB_SUPERBRIEF:u"右丁",
+		None:           u"右丁字"},
+	u"\u22a3":{
+		VERB_SUPERBRIEF:u"左丁",
+		None:           u"左丁字"},
+	u"\u22a4":{
+		VERB_SUPERBRIEF:u"下丁",
+		None:           u"下丁字"},
+	u"\u22a5":{
+		VERB_SUPERBRIEF:u"上丁",
+		None:           u"上丁字"},
 	u"\u22a6":{None:u"斷定"},
 	u"\u22a7":{None:u"模擬"},
 	u"\u22a8":{None:u"真"},
